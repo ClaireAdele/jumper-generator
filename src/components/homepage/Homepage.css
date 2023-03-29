@@ -1,0 +1,78 @@
+.homepage {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#banner {
+    display: flex;
+    /* border: 2px solid purple; */
+    flex-direction: row;
+    height: 60%;
+}
+#imgContainer {
+    height: 100%;
+    color: white;
+    background-image: url("./yarn-2565067.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-right: 45%;
+    display: flex;
+    /* border: 10px solid pink */
+}
+
+#websiteTitle {
+    align-self: center;
+    margin-left: 5%;
+}
+
+#blurb {
+    display: flex;
+    flex-direction: column;
+    text-align:justify;
+    justify-content: center;
+    height: 100%;
+    margin-left: 2%;
+    margin-right: 2%;
+    /* border: 10px solid pink */
+}
+
+/* .slide-in {
+    animation: slide-in 2s;
+    animation-direction: normal;
+} */
+
+@keyframes slide-in {
+    from {
+            margin-left: 500%;
+        }
+    
+        to {
+            margin-left: 2%;
+        }
+}
+
+.nav-button {
+    background-color: #A2C685;
+    padding: 1% 1% 1% 1%;
+    margin-left: 55%;
+    margin-right: 10%;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    /* box-shadow: 2px 2px 2px #999b3f; */
+}
+
+#about {
+    background-color: #e3d9cf;
+    height: 40%;
+    min-width: 100%;
+    text-align: justify;
+}
+
+#description {
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+}
