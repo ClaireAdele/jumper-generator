@@ -8,3 +8,20 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.pageBackground {
+  height: 100%;
+  width: 100%;
+  background-color: #e3d9cf;
+  color: rgb(73, 67, 62);
+}
+
+.pageShaper {
+  height: 100%;
+  background-color: white;
+  margin-left: 20%;
+  margin-right: 20%;
+  display: flex;
+  flex-direction: column;
+}
+

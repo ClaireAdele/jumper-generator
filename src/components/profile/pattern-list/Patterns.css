@@ -1,0 +1,12 @@
+.patternTile {
+    background-color: #A2C685;
+    border-radius: 12px;
+    display: flex;
+    flex-direction:column;
+    max-width: 25%;
+    margin-left: 5%;
+}
+
+.patternTileImg {
+    max-width: 100%;
+}

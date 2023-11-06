@@ -1,0 +1,22 @@
+#profileInfo {
+    display: flex;
+    flex-direction: row;
+    background-color: #A2C685;
+    padding: 1%;
+    margin: 5%;
+    border-radius: 12px;
+    box-shadow: 10px 10px 10px rgb(183, 180, 180);
+}
+
+#profileImg {
+    background-color: white;
+    width: 30%;
+    border-radius: 50%;
+    /* box-shadow: 10px 10px 10px rgb(183, 180, 180); */
+}
+
+#measurements {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+}
