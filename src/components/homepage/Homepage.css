@@ -1,12 +1,13 @@
 .homepage {
-    height: 230%;
+    height: 250%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
+
 #imgContainer {
-    height: 100%;
+    height: 50%;
     color: white;
     background-image: url("./yarn-2565067.jpg");
     background-repeat: no-repeat;
@@ -28,7 +29,9 @@
     margin-left: 2%;
     margin-right: 2%;
     color: rgb(73, 67, 62);
+    height: 24%;
     margin-bottom: 3%;
+    margin-top: 3%;
 }
 
 .nav-button {
@@ -49,6 +52,7 @@
     display: flex;
     flex-direction: column;
     padding-bottom: 2%;
+    height: 20%;
 }
 
 #description {
