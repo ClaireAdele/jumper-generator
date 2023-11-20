@@ -1,13 +1,11 @@
 .homepage {
-    height: 250%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
-
 #imgContainer {
-    height: 50%;
+    height: 100vh;
     color: white;
     background-image: url("./yarn-2565067.jpg");
     background-repeat: no-repeat;
@@ -21,17 +19,21 @@
     margin-left: 5%;
 }
 
-#blurb {
+#pattern-creation-container {
+    display: flex;
+}
+
+#pattern-creation {
+    width: 67%;
+    margin-left: 3%;
     display: flex;
     flex-direction: column;
     text-align:justify;
-    justify-content: center;
-    margin-left: 2%;
-    margin-right: 2%;
     color: rgb(73, 67, 62);
-    height: 24%;
-    margin-bottom: 3%;
-    margin-top: 3%;
+}
+
+#no-account-access-button {
+    margin-top: 4%;
 }
 
 .nav-button {
@@ -43,17 +45,9 @@
     align-self: center;
     border-radius: 12px;
     box-shadow: 10px 10px 10px rgb(183, 180, 180);
+    margin-bottom: 2%;
 }
 
-#about {
-    background-color: #e3d9cf;
-    min-width: 100%;
-    text-align: justify;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 2%;
-    height: 20%;
-}
 
 #description {
     color: rgb(73, 67, 62);
@@ -63,32 +57,51 @@
 } 
 
 .auth-form {
+    width: 30%;
     display: flex;
     flex-direction: column;
-    padding: 1% 5% 3% 5%;
     background-color: #A2C685;
-    border-radius: 5% 5% 5% 5%;
+    text-align: center;
+    /* border-radius: 10px; */
     color: white;
-    box-shadow: 10px 0px 40px rgb(183, 180, 180);
+    /* font-size: medium; */
+    /* box-shadow: 10px 0px 40px rgb(183, 180, 180); */
 }
 
 .auth-input {
     margin-top: 10%;
     padding-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 10px;
+    border-color: white;
     padding-bottom: 2%;
+    border-style: solid;
+    /* box-shadow: 5px 5px 5px rgb(162, 150, 150); */
 }
 
 .auth-button {
     margin-top: 10%;
     padding-top: 2%;
+    margin-left: 35%;
+    margin-right: 35%;
+    border-radius: 10px;
+    border: 1px solid #e3d9cf;
+    background-color: #e3d9cf;
+    color: rgb(73, 67, 62);
     padding-bottom: 2%;
+    /* box-shadow: 5px 5px 5px rgb(162, 150, 150); */
 }
 
-#auth-options {
-    color: rgb(73, 67, 62);
-    display: flex;
-    justify-content: space-around;
-    margin-top: 2%;
+.auth-button:hover {
+    background-color: #a49c95;
+    border: 1px solid #a49c95;
+    color: white;
+}
+
+.account-yes-no:hover {
+   /* font-size: large; */
+   text-decoration: underline;
 }
 
 .form-title:before,
@@ -97,3 +110,40 @@
     border-bottom: 2px solid #A2C685;
 }
 
+#faq {
+    background-color: #e3d9cf;
+    min-width: 100%;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2%;
+    height: 20%;
+}
+
+.faq-container {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+    color: rgb(73, 67, 62);
+    margin-top: 1%;
+}
+
+.ref-link {
+    color: #5b9d25;
+    font-weight: bold;
+}
+
+.ref-link:hover {
+    text-decoration: underline;
+}
+
+#about {
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+#my-picture {
+    max-width: 20%;
+    border-radius: 50%;
+}
