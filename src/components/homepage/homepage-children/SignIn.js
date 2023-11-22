@@ -19,19 +19,21 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
 
   return (
     <div className="auth-form">
-      <h2 className="form-title">Sign-In</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        className="auth-input"
-        onChange={handleInputEmail}
-      ></input>
-      <button className="auth-button" onClick={handleClick}>
-        Submit
-      </button>
-      <p onClick={handleClickSignUp} className="account-yes-no">
-        No account yet? Register now
-      </p>
+      <div className="form-container">
+        <h2 className="form-title">Sign-In</h2>
+        <input
+          type="text"
+          placeholder="Username"
+          className="auth-input"
+          onChange={handleInputEmail}
+        ></input>
+        <button className="auth-button" onClick={handleClick}>
+          Submit
+        </button>
+        <p onClick={handleClickSignUp} className="account-yes-no">
+          No account yet? Register now
+        </p>
+      </div>
     </div>
   );
 };

@@ -30,8 +30,8 @@ const SignUp = ({ setUserHasAccount }) => {
   };
 
   return (
-    <>
-      <div className="auth-form">
+    <div className="auth-form">
+      <div className="form-container">
         <h2 className="form-title">Register</h2>
         <input
           type="text"
@@ -46,7 +46,7 @@ const SignUp = ({ setUserHasAccount }) => {
           Already have an account? Sign-in now.
         </p>
       </div>
-    </>
+      </div>
   );
 };
 

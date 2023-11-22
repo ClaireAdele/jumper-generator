@@ -10,3 +10,7 @@
 .patternTileImg {
     max-width: 100%;
 }
+
+#pattern-list-container {
+    display: flex;
+}

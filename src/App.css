@@ -16,7 +16,6 @@ body {
 
 .pageBackground {
   height: 100;
-  width: 100;
   background-color: #e3d9cf;
   color: rgb(73, 67, 62);
 }
@@ -30,3 +29,6 @@ body {
   flex-direction: column;
 }
 
+a {
+  text-decoration: none;
+}

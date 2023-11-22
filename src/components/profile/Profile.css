@@ -20,3 +20,7 @@
     flex-direction: column;
     margin-left: 20%;
 }
+
+#profilePage {
+    min-height: 100vh;
+}
