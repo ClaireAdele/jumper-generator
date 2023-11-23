@@ -1,4 +1,4 @@
-import myPicture from "../23270583_1474670032623870_2628779597240232760_o.jpg"
+import myPicture from "../homepage_assets/profile-pic.jpg"
 
 const About = () => {
     return (

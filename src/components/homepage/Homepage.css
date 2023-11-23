@@ -7,7 +7,7 @@
 #imgContainer {
     height: 100vh;
     color: white;
-    background-image: url("./yarn-2565067.jpg");
+    background-image: url("./homepage_assets/yarn-2565067.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -32,6 +32,25 @@
     color: rgb(73, 67, 62);
 }
 
+.pattern-creation-card {
+    display: flex;
+    flex-direction: column;
+    max-width: 25%;
+    border-radius: 10px;
+    padding: 2% 2% 2% 2%;
+    box-shadow: 0px 0px 5px 1px #d6d1d1;
+}
+
+.svgImg {
+    align-self: center;
+    max-width: 40px;
+}
+
+#columns-text {
+    display: flex;
+    justify-content: space-around;
+}
+
 #no-account-access-button {
     margin-top: 4%;
 }
@@ -44,14 +63,12 @@
     text-align: center;
     align-self: center;
     border-radius: 12px;
-    box-shadow: 10px 10px 10px rgb(183, 180, 180);
     margin-bottom: 3%;
 }
 
 .nav-button:hover {
     background-color: #75905f;
 }
-
 
 #description {
     color: rgb(73, 67, 62);
@@ -66,10 +83,7 @@
     text-align: center;
     display: flex;
     align-items: center;
-    /* border-radius: 10px; */
     color: white;
-    /* font-size: medium; */
-    /* box-shadow: 10px 0px 40px rgb(183, 180, 180); */
 }
 
 .form-container {
@@ -86,7 +100,6 @@
     border-color: white;
     padding-bottom: 2%;
     border-style: solid;
-    /* box-shadow: 5px 5px 5px rgb(162, 150, 150); */
 }
 
 .auth-button {
@@ -100,7 +113,6 @@
     color: rgb(73, 67, 62);
     padding-bottom: 2%;
     font-size: medium;
-    /* box-shadow: 5px 5px 5px rgb(162, 150, 150); */
 }
 
 .auth-button:hover {
@@ -111,11 +123,9 @@
 }
 
 .account-yes-no:hover {
-   /* font-size: large; */
    text-decoration: underline;
    cursor: pointer;
 }
-
 
 .ref-link {
     color: #5b9d25;
@@ -137,11 +147,11 @@
 }
 
 .faq-container {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 15%;
+    margin-right: 15%;
     text-align: justify;
     color: rgb(73, 67, 62);
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 #about {
