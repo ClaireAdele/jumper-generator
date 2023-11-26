@@ -18,47 +18,47 @@ const ProfilePage = () => {
     }
   }
 
-  return showHowToTakeMeasurements ? (
+  return (
     <div className="pageBackground">
       <div className="pageShaper">
         <div id="profilePage">
-          <div id="profileInfo">
-            <img src={img} id="profileImg"></img>
+          {/* <div id="profileInfo">
+            <h4>Username</h4>
             <div id="measurements">
+              <p>Chest</p>
+              <p>Neckline to armhole length</p>
+              <p>Armhole to bottom of jumper</p>
+              <p>Optional: wrist circumference</p>
+              <p>Optional: arm circumference</p>
+              <p>Optional: shoulder circumference</p>
+              <p>Arm length</p>
+              <button onClick={handleClickEditProfile}>Edit profile</button>
+            </div>
+          </div> */}
+          <div id="profileInfo-style2">
+            <div id="username-img">
               <h4>Username</h4>
+            </div>
+            <div id="measurements-style2">
               <p>Chest</p>
               <p>Neckline to armhole length</p>
               <p>Armhole to bottom of jumper</p>
               <p>Arm length</p>
-              <button onClick={handleClickEditProfile}>Edit profile</button>
             </div>
+            <button className="main-button-style" id="edit-profile-button" onClick={handleClickEditProfile}>Edit profile</button>
           </div>
-          <button onClick={handleClickShowHowTo}>
-            Show how to take measurements
-          </button>
-          <HowToTakeMeasurements />
-          <PatternList />
-        </div>
-      </div>
-    </div>
-  ) : (
-    <div className="pageBackground">
-      <div className="pageShaper">
-        <div id="profilePage">
-          <div id="profileInfo">
-            <img src={img} id="profileImg"></img>
-            <div id="measurements">
-              <h4>Username</h4>
-              <p>Chest</p>
-              <p>Neckline to armhole length</p>
-              <p>Armhole to bottom of jumper</p>
-              <p>Arm length</p>
-              <button onClick={handleClickEditProfile}>Edit profile</button>
-            </div>
-          </div>
-          <button onClick={handleClickShowHowTo}>
-            Show how to take measurements
-          </button>
+          {showHowToTakeMeasurements ? (
+            <>
+              <button onClick={handleClickShowHowTo}>
+                Hide how to take measurements
+              </button>
+              <HowToTakeMeasurements />
+            </>
+          ) : (
+            <button onClick={handleClickShowHowTo}>
+              Show how to take measurements
+            </button>
+          )}
           <PatternList />
         </div>
       </div>

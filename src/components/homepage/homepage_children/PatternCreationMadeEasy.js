@@ -51,7 +51,7 @@ const PatternCreationMadeEasy = ({ navigate }) => {
         </div>
 
         <Link
-          className="nav-button"
+          className="main-button-style"
           id="no-account-access-button"
           to="/data-entry"
         >
