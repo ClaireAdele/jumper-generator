@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import Banner from "./homepage_children/Banner"
-import AuthenticationOptions from "./homepage_children/AuthenticationOptions";
-import { Link } from "react-router-dom";
+import PatternCreationMadeEasy from "./homepage_children/PatternCreationMadeEasy";
 import "./Homepage.css";
 import "../../App.css";
 import Faq from "./homepage_children/Faq";
@@ -11,7 +9,7 @@ const Homepage = ({ navigate }) => {
     return (
       <div className="homepage">
         <Banner />
-        <AuthenticationOptions navigate={navigate} />
+        <PatternCreationMadeEasy navigate={navigate} />
         <Faq />
         <About />
       </div>

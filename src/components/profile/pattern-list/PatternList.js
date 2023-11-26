@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 const PatternList = () => {
   return (
     <div id="pattern-list-container">
-      <div className="patternTile">
-        <img className="patternTileImg" src={placeHolderImg}></img>
-        <Link to="/yoke-pattern">Create new pattern</Link>
+      <div className="pattern-tile">
+        <img className="pattern-tileImg" src={placeHolderImg}></img>
+        <Link className="pattern-link" id="create-new-pattern" to="/yoke-pattern">Create new pattern</Link>
       </div>
       <PatternTile />
     </div>

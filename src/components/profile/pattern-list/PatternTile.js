@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 
 const PatternTile = () => {
   return (
-    <div className="patternTile">
-      <img className="patternTileImg" src={placeHolderImg}></img>
-      <Link to="/yoke-pattern">Pattern Name</Link>
+    <div className="pattern-tile">
+      <img className="pattern-tile-img" src={placeHolderImg}></img>
+      <Link className="pattern-link" to="/yoke-pattern">
+        Pattern Name
+      </Link>
     </div>
-  )
+  );
 };
 
 export default PatternTile;
