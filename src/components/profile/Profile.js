@@ -35,7 +35,7 @@ const ProfilePage = () => {
               <button onClick={handleClickEditProfile}>Edit profile</button>
             </div>
           </div> */}
-          <div id="profileInfo-style2">
+          <div id="profile-info-style2">
             <div id="username-img">
               <h4>Username</h4>
             </div>
@@ -45,17 +45,31 @@ const ProfilePage = () => {
               <p>Armhole to bottom of jumper</p>
               <p>Arm length</p>
             </div>
-            <button className="main-button-style" id="edit-profile-button" onClick={handleClickEditProfile}>Edit profile</button>
+            <button
+              className="main-button-style"
+              id="edit-profile-button"
+              onClick={handleClickEditProfile}
+            >
+              Edit profile
+            </button>
           </div>
           {showHowToTakeMeasurements ? (
             <>
-              <button onClick={handleClickShowHowTo}>
+              <button
+                className="main-button-style"
+                id="show-how-to-measurements"
+                onClick={handleClickShowHowTo}
+              >
                 Hide how to take measurements
               </button>
               <HowToTakeMeasurements />
             </>
           ) : (
-            <button onClick={handleClickShowHowTo}>
+            <button
+              id="show-how-to-measurements"
+              className="main-button-style"
+              onClick={handleClickShowHowTo}
+            >
               Show how to take measurements
             </button>
           )}

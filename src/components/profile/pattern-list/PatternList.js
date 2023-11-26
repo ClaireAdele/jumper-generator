@@ -8,7 +8,7 @@ const PatternList = () => {
   return (
     <div id="pattern-list-container">
       <div className="pattern-tile">
-        <img className="pattern-tileImg" src={placeHolderImg}></img>
+        <img className="pattern-tile-img" src={placeHolderImg}></img>
         <Link className="pattern-link" id="create-new-pattern" to="/yoke-pattern">Create new pattern</Link>
       </div>
       <PatternTile />
