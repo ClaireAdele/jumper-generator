@@ -1,7 +1,7 @@
 import "../../../App.css";
 import "../pattern-list/Patterns.css";
 import PatternTile from "./PatternTile";
-import placeHolderImg from "../../profile/yarn-2795588_640.png";
+import placeHolderImg from "../../profile/sweater-7482269_1280.jpg";
 import { Link } from "react-router-dom";
 
 const PatternList = () => {
