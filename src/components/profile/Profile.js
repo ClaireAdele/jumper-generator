@@ -3,7 +3,8 @@ import "./Profile.css"
 import HowToTakeMeasurements from "../pattern-data-entry/HowToTakeMeasurements"
 import PatternList from "./pattern-list/PatternList"
 import React, { useState } from "react"
-import img from "../homepage/homepage_assets/knitting.svg"
+import svg_icon_img from "../homepage/homepage_assets/ball-of-wool-svgrepo-com.svg";
+import editSvgIcon from "./profile-assets/pen-square-svgrepo-com.svg"
 
 const ProfilePage = () => {
   const [showHowToTakeMeasurements, setShowHowtoTakeMeasurements] = useState(false);
@@ -27,7 +28,10 @@ const ProfilePage = () => {
               <h1>Username</h1>
             </div>
             <div id="round-knitting-hearts">
-              <img src={img} id="img-knitting"></img>
+              <img src={svg_icon_img} id="img-knitting"></img>
+            </div>
+            <div id="edit-profile">
+              <img src={editSvgIcon} id="edit-profile-img"></img>
             </div>
             <div id="measurements-style2">
               <p>Chest</p>
