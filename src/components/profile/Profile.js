@@ -2,7 +2,8 @@ import "../../App.css"
 import "./Profile.css"
 import HowToTakeMeasurements from "../pattern-data-entry/HowToTakeMeasurements"
 import PatternList from "./pattern-list/PatternList"
-import React, { useState } from "react";
+import React, { useState } from "react"
+import img from "../homepage/homepage_assets/knitting.svg"
 
 const ProfilePage = () => {
   const [showHowToTakeMeasurements, setShowHowtoTakeMeasurements] = useState(false);
@@ -20,10 +21,13 @@ const ProfilePage = () => {
   return (
     <div className="pageBackground">
       <div className="pageShaper">
-        <div id="profilePage">
+        <div id="profile-page">
           <div id="profile-info-style2">
             <div id="username-img">
-              <h4>Username</h4>
+              <h1>Username</h1>
+            </div>
+            <div id="round-knitting-hearts">
+              <img src={img} id="img-knitting"></img>
             </div>
             <div id="measurements-style2">
               <p>Chest</p>
@@ -31,13 +35,13 @@ const ProfilePage = () => {
               <p>Armhole to bottom of jumper</p>
               <p>Arm length</p>
             </div>
-            <button
+            {/* <button
               className="main-button-style"
               id="edit-profile-button"
               onClick={handleClickEditProfile}
             >
               Edit profile
-            </button>
+            </button> */}
           </div>
           {showHowToTakeMeasurements ? (
             <>

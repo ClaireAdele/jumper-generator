@@ -1,3 +1,8 @@
+#pattern-list-container {
+    display: flex;
+    margin-bottom: 5%;
+}
+
 .pattern-tile {
     border-radius: 12px;
     display: flex;
@@ -11,12 +16,6 @@
 .pattern-tile-img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-#pattern-list-container {
-    display: flex;
-    margin-bottom: 5%;
-    border: 2px solid pink;
 }
 
 .pattern-link {
@@ -34,7 +33,7 @@
 }
 
 #create-new-pattern:hover {
-    background-color: rgb(131, 104, 89) !important;
+    background-color: rgb(130, 73, 42) !important;
 }
 
 .pattern-link:hover {

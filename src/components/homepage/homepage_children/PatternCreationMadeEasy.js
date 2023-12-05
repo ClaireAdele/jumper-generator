@@ -4,7 +4,7 @@ import SignUp from "./Sign-up";
 import React, { useState } from "react";
 import "../Homepage.css";
 import "../../../App.css";
-import yarnSvg from "../homepage_assets/yarn.svg"
+import yarnSvg from "../homepage_assets/ball-of-wool-svgrepo-com.svg"
 import jumperSvg from "../homepage_assets/jumper-thin.svg"
 import knittingSvg from "../homepage_assets/knitting.svg"
 

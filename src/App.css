@@ -22,7 +22,6 @@ body {
 .pageBackground {
   display: grid;
   grid-template-columns: 20% 60% 20%;
-  height: auto;
   min-height: 100%;
   background-color: #e3d9cf;
   color: rgb(73, 67, 62);
@@ -30,7 +29,6 @@ body {
 
 .pageShaper {
   grid-column: 2;
-  height: 100%;
   background-color: white;
 }
 
