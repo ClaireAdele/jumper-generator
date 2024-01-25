@@ -1,4 +1,4 @@
-import dataCollectionSchema from "./sweater-6788998_1280.jpg"
+import dataCollectionSchema from "../pattern-data-entry-assets/sweater-6788998_1280.jpg"
   
 const HowToTakeMeasurements = () => {
   return (
