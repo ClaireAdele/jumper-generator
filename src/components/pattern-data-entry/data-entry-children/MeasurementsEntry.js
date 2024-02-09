@@ -16,7 +16,12 @@ const MeasurementsEntry = () => {
     };
 
     if (toggleComponent == "measurement-entry") { 
-        return <EnterMeasurements jumperAndNeckShape={jumperAndNeckShape} />;
+        return (
+          <EnterMeasurements
+            setToggleComponent={setToggleComponent}
+            jumperAndNeckShape={jumperAndNeckShape}
+          />
+        );
     }
 };
 

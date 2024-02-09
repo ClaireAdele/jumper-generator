@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 
 const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
-  const [jumperShape, setJumperShape] = useState("");
-  const [necklineShape, setNecklineShape] = useState("");
+  const [jumperShape, setJumperShape] = useState(null);
+  const [necklineShape, setNecklineShape] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handlePickJumperShape = (event) => {
     setJumperShape(event.target.value);
@@ -13,8 +14,12 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
   }
 
   const submitJumperAndNeckShape = () => { 
-    setToggleComponent("measurement-entry");
-    setJumperAndNeckShape({ neckline: necklineShape, jumper: jumperShape });
+    if (!jumperShape || !necklineShape) {
+      setErrorMessage("You must pick a jumper and neckline shape")
+    } else { 
+      setToggleComponent("measurement-entry");
+      setJumperAndNeckShape({ neckline: necklineShape, jumper: jumperShape });
+    }
   }
 
   return (
@@ -91,6 +96,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
         <label>Round neckline</label>
       </div>
       <button onClick={submitJumperAndNeckShape}>Submit Selection</button>
+      {errorMessage ? <p>{ errorMessage }</p> : <></> }
     </div>
   );
 };

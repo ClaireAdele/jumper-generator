@@ -1,6 +1,6 @@
 import "../../App.css"
 import "./Profile.css"
-import HowToTakeMeasurements from "../pattern-data-entry/HowToTakeMeasurements"
+import HowToTakeMeasurements from "../pattern-data-entry/data-entry-children/HowToTakeMeasurements"
 import PatternList from "./pattern-list/PatternList"
 import React, { useState } from "react"
 import svg_icon_img from "../homepage/homepage_assets/ball-of-wool-svgrepo-com.svg";
@@ -27,25 +27,16 @@ const ProfilePage = () => {
             <div id="username-img">
               <h1>Username</h1>
             </div>
-            <div id="round-knitting-hearts">
-              <img src={svg_icon_img} id="img-knitting"></img>
-            </div>
             <div id="edit-profile">
               <img src={editSvgIcon} id="edit-profile-img"></img>
             </div>
             <div id="measurements-style2">
               <p>Chest</p>
+              <p></p>
               <p>Neckline to armhole length</p>
               <p>Armhole to bottom of jumper</p>
               <p>Arm length</p>
             </div>
-            {/* <button
-              className="main-button-style"
-              id="edit-profile-button"
-              onClick={handleClickEditProfile}
-            >
-              Edit profile
-            </button> */}
           </div>
           {showHowToTakeMeasurements ? (
             <>

@@ -3,7 +3,7 @@ import Homepage from './components/homepage/Homepage';
 import Profile from './components/profile/Profile';
 import DataEntry from './components/pattern-data-entry/DataEntry';
 import { useNavigate, Routes, Route } from "react-router-dom";
-import YokeJumperPattern from './components/pattern-data-entry/YokeJumperPattern';
+import YokeJumperPattern from './components/pattern-data-entry/pattern-templates/YokeJumperPattern';
 
 
 function App() {
