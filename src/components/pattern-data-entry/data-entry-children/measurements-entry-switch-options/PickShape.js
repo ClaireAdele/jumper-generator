@@ -48,7 +48,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
       <div>
         <input
           type="radio"
-          id="bottom-up"
+          value="bottom-up"
           onChange={handlePickJumperShape}
           name="pick-jumper"
         ></input>

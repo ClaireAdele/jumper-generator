@@ -1,24 +1,46 @@
 import { useState } from "react";
+import { validateData } from "../../../../services-and-util-functions/utils";
 
-const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
+const EnterMeasurements = ({
+  jumperAndNeckShape,
+  setToggleComponent,
+  finalJumperData,
+  setFinalJumperData,
+}) => {
   const [jumperData, setJumperData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
 
-
-  const handleClick = () => { 
+  const handleClickPickDifferentShape = () => {
     setToggleComponent("pick-shape");
-  }
+  };
 
-  const handleInput = (event) => { 
-    console.log(event.target.value)
+  const handleInput = (event) => {
     const key = event.target.name;
     const value = event.target.value;
     const updatedObject = jumperData;
     updatedObject[key] = value;
     setJumperData(updatedObject);
-  }
-  console.log(jumperData)
+  };
 
-  if (jumperAndNeckShape.jumper == "top-down-raglan") {
+  const handleSubmitData = () => {
+    if (errorMessage) {
+      setErrorMessage(null);
+    }
+
+    if (!validateData(jumperAndNeckShape, jumperData)) {
+      setErrorMessage("You must enter the relevant data");
+    } else {
+      const updatedFinalJumperData = finalJumperData;
+
+      for (const property in jumperData) {
+        updatedFinalJumperData[property] = jumperData[property];
+      }
+      console.log(updatedFinalJumperData)
+      setFinalJumperData(updatedFinalJumperData);
+    }
+  };
+
+  if (jumperAndNeckShape.jumper === "top-down-raglan") {
     return (
       <div className="measurements-entry-tile">
         <h3>Top Down Raglan</h3>
@@ -32,7 +54,11 @@ const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
         <input onChange={handleInput} name="armLength" type="number"></input>
         <p>Body length</p>
         <input onChange={handleInput} name="bodyLength" type="number"></input>
-        <button onClick={handleClick}>Pick different shape</button>
+        <button onClick={handleClickPickDifferentShape}>
+          Pick different shape
+        </button>
+        <button onClick={handleSubmitData}>Submit data</button>
+        {errorMessage ? <p>{errorMessage}</p> : <></>}
       </div>
     );
     /*
@@ -42,7 +68,7 @@ const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
     */
   }
 
-  if (jumperAndNeckShape.jumper == "drop-shoulder") {
+  if (jumperAndNeckShape.jumper === "drop-shoulder") {
     return (
       <div className="measurements-entry-tile">
         <h3>Drop-shoulder</h3>
@@ -68,7 +94,11 @@ const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
         ></input>
         <p>Arm Length</p>
         <input onChange={handleInput} name="armLength" type="number"></input>
-        <button onClick={handleClick}>Pick different shape</button>
+        <button onClick={handleClickPickDifferentShape}>
+          Pick different shape
+        </button>
+        <button onClick={handleSubmitData}>Submit data</button>
+        {errorMessage ? <p>{errorMessage}</p> : <></>}
       </div>
     );
     /*body length
@@ -78,7 +108,7 @@ const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
      neckline to chest line*/
   }
 
-  if (jumperAndNeckShape.jumper == "bottom-up") {
+  if (jumperAndNeckShape.jumper === "bottom-up") {
     return (
       <div className="measurements-entry-tile">
         <p>Chest circumference</p>
@@ -103,7 +133,11 @@ const EnterMeasurements = ({ jumperAndNeckShape, setToggleComponent }) => {
         ></input>
         <p>Arm Length</p>
         <input onChange={handleInput} name="armLength" type="number"></input>
-        <button onClick={handleClick}>Pick different shape</button>
+        <button onClick={handleClickPickDifferentShape}>
+          Pick different shape
+        </button>
+        <button onClick={handleSubmitData}>Submit data</button>
+        {errorMessage ? <p>{errorMessage}</p> : <></>}
       </div>
     );
   }

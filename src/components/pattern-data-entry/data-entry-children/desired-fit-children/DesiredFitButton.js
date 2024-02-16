@@ -1,7 +1,12 @@
-const DesiredFitButton = ({ easeAmountOption, setEaseAmount, setSuccessMessage }) => { 
+const DesiredFitButton = ({ easeAmountOption, setEaseAmount, setSuccessMessage, finalJumperData, setFinalJumperData }) => { 
 
     const handleClick = () => {
         setEaseAmount(easeAmountOption);
+
+        const updatedFinalJumperData = finalJumperData;
+        updatedFinalJumperData.easeAmount = easeAmountOption.ease;
+        setFinalJumperData(updatedFinalJumperData);
+
         setSuccessMessage(`Your desired fit: ${easeAmountOption.text}`);
     }
 
