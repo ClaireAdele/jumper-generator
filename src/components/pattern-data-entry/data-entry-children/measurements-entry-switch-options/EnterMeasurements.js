@@ -35,7 +35,6 @@ const EnterMeasurements = ({
       for (const property in jumperData) {
         updatedFinalJumperData[property] = jumperData[property];
       }
-      console.log(updatedFinalJumperData)
       setFinalJumperData(updatedFinalJumperData);
     }
   };
@@ -44,6 +43,12 @@ const EnterMeasurements = ({
     return (
       <div className="measurements-entry-tile">
         <h3>Top Down Raglan</h3>
+        <p>Knitting Gauge</p>
+        <input
+          onChange={handleInput}
+          name="knittingGauge"
+          type="number"
+        ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}
@@ -72,6 +77,12 @@ const EnterMeasurements = ({
     return (
       <div className="measurements-entry-tile">
         <h3>Drop-shoulder</h3>
+        <p>Knitting Gauge</p>
+        <input
+          onChange={handleInput}
+          name="knittingGauge"
+          type="number"
+        ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}
@@ -101,16 +112,17 @@ const EnterMeasurements = ({
         {errorMessage ? <p>{errorMessage}</p> : <></>}
       </div>
     );
-    /*body length
-     shoulders width
-     arm length
-     chest circumference
-     neckline to chest line*/
   }
 
   if (jumperAndNeckShape.jumper === "bottom-up") {
     return (
       <div className="measurements-entry-tile">
+        <p>Knitting Gauge</p>
+        <input
+          onChange={handleInput}
+          name="knittingGauge"
+          type="number"
+        ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}

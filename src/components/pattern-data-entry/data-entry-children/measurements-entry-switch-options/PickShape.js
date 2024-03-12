@@ -9,94 +9,129 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
     setJumperShape(event.target.value);
   };
 
-  const handlePickNecklineShape = (event) => { 
+  const handlePickNecklineShape = (event) => {
     setNecklineShape(event.target.value);
-  }
+  };
 
-  const submitJumperAndNeckShape = () => { 
+  const submitJumperAndNeckShape = () => {
     if (!jumperShape || !necklineShape) {
-      setErrorMessage("You must pick a jumper and neckline shape")
-    } else { 
+      setErrorMessage("You must pick a jumper and neckline shape");
+    } else {
       setToggleComponent("measurement-entry");
       setJumperAndNeckShape({ neckline: necklineShape, jumper: jumperShape });
     }
-  }
+  };
 
   return (
-    <div>
+    <div id="pick-shape-container">
       <h3>Pick a Jumper Shape</h3>
       <div>
-        <input
-          type="radio"
+        <button
           value="top-down-raglan"
-          onChange={handlePickJumperShape}
+          onClick={handlePickJumperShape}
           name="pick-jumper"
-        ></input>
-        <label>Top-down Raglan Jumper</label>
+          className={
+            jumperShape == "top-down-raglan"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Top-down Raglan Jumper
+        </button>
       </div>
 
       <div>
-        <input
-          type="radio"
+        <button
           value="drop-shoulder"
-          onChange={handlePickJumperShape}
+          onClick={handlePickJumperShape}
           name="pick-jumper"
-        ></input>
-        <label>Drop-shoulder seamed Jumper</label>
+          className={
+            jumperShape == "drop-shoulder"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Drop-shoulder seamed Jumper
+        </button>
       </div>
 
       <div>
-        <input
-          type="radio"
+        <button
           value="bottom-up"
-          onChange={handlePickJumperShape}
+          onClick={handlePickJumperShape}
           name="pick-jumper"
-        ></input>
-        <label>Bottom-up Raglan Jumper</label>
+          className={
+            jumperShape == "bottom-up"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Bottom-up Raglan Jumper
+        </button>
       </div>
 
       <h3>Pick a Neckline Shape</h3>
       <div>
-        <input
-          type="radio"
+        <button
           value="folded-neckline"
-          onChange={handlePickNecklineShape}
+          onClick={handlePickNecklineShape}
           name="pick-neckline"
-        ></input>
-        <label>Folded round neckline</label>
+          className={
+            necklineShape == "folded-neckline"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Folded round neckline
+        </button>
       </div>
 
       <div>
-        <input
+        <button
           value="v-shape"
-          type="radio"
-          onChange={handlePickNecklineShape}
+          onClick={handlePickNecklineShape}
           name="pick-neckline"
-        ></input>
-        <label>V-shape neckline</label>
+          className={
+            necklineShape == "v-shape"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          V-shape neckline
+        </button>
       </div>
 
       <div>
-        <input
-          type="radio"
+        <button
           value="boat-neck"
-          onChange={handlePickNecklineShape}
+          onClick={handlePickNecklineShape}
           name="pick-neckline"
-        ></input>
-        <label>Boat neckline</label>
+          className={
+            necklineShape == "boat-neck"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Boat neckline
+        </button>
       </div>
 
       <div>
-        <input
+        <button
           value="round-neck"
-          type="radio"
-          onChange={handlePickNecklineShape}
+          onClick={handlePickNecklineShape}
           name="pick-neckline"
-        ></input>
-        <label>Round neckline</label>
+          className={
+            necklineShape == "round-neck"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Round neckline
+        </button>
       </div>
       <button onClick={submitJumperAndNeckShape}>Submit Selection</button>
-      {errorMessage ? <p>{ errorMessage }</p> : <></> }
+      {errorMessage ? <p>{errorMessage}</p> : <></>}
     </div>
   );
 };

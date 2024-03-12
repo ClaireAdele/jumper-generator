@@ -1,8 +1,9 @@
 #data-entry-container {
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 50% 50%;
     height: 100%;
     margin-bottom: 5%;
+    border: 2px solid yellow;
 }
 
 #data-entry-page {
@@ -23,7 +24,6 @@
     border: 2px solid green;
     display: flex;
     flex-direction: column;
-    width: 50%;
     height: 100%;
 }
 
@@ -61,4 +61,64 @@
 
 #prices-table {
     margin-top: 14%;
+}
+
+.pick-jumper-button {
+    background-color: rgb(192, 122, 85);
+    padding: 1% 2% 1% 2%;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 0px;
+    margin-bottom: 1%;
+}
+
+.pick-neckline-button {
+    background-color: rgb(192, 122, 85);
+    padding: 1% 2% 1% 2%;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 0px;
+    margin-bottom: 1%;
+}
+
+.pick-jumper-button:hover {
+    background-color: rgb(130, 73, 42)
+}
+
+.pick-neckline-button:hover {
+    background-color: rgb(130, 73, 42)
+}
+
+.pick-jumper-button-selected {
+    background-color: white;
+    border: 2px solid rgb(130, 73, 42);
+    padding: 1% 2% 1% 2%;
+    color: rgb(130, 73, 42);
+    text-decoration: none;
+    border-radius: 12px;
+    /* border: 0px; */
+    margin-bottom: 1%;
+}
+
+.ease-selector-button {
+    background-color: rgb(192, 122, 85);
+    padding: 1% 2% 1% 2%;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 0px;
+    margin-bottom: 1%;
+}
+
+.ease-selector-button-selected {
+background-color: white;
+    border: 2px solid rgb(130, 73, 42);
+    padding: 1% 2% 1% 2%;
+    color: rgb(130, 73, 42);
+    text-decoration: none;
+    border-radius: 12px;
+    /* border: 0px; */
+    margin-bottom: 1%;
 }
