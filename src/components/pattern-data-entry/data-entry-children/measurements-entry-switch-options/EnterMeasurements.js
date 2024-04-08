@@ -2,7 +2,6 @@ import { useState } from "react";
 import { validateData } from "../../../../services-and-util-functions/utils";
 
 const EnterMeasurements = ({
-  jumperAndNeckShape,
   setToggleComponent,
   finalJumperData,
   setFinalJumperData,
@@ -13,6 +12,8 @@ const EnterMeasurements = ({
   const handleClickPickDifferentShape = () => {
     setToggleComponent("pick-shape");
   };
+
+  console.log(finalJumperData);
 
   const handleInput = (event) => {
     const key = event.target.name;
@@ -27,7 +28,7 @@ const EnterMeasurements = ({
       setErrorMessage(null);
     }
 
-    if (!validateData(jumperAndNeckShape, jumperData)) {
+    if (!validateData(finalJumperData, jumperData)) {
       setErrorMessage("You must enter the relevant data");
     } else {
       const updatedFinalJumperData = finalJumperData;
@@ -35,11 +36,12 @@ const EnterMeasurements = ({
       for (const property in jumperData) {
         updatedFinalJumperData[property] = jumperData[property];
       }
+
       setFinalJumperData(updatedFinalJumperData);
     }
   };
 
-  if (jumperAndNeckShape.jumper === "top-down-raglan") {
+  if (finalJumperData.jumper === "top-down-raglan") {
     return (
       <div className="measurements-entry-tile">
         <h3>Top Down Raglan</h3>
@@ -48,22 +50,36 @@ const EnterMeasurements = ({
           onChange={handleInput}
           name="knittingGauge"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}
           name="chestCircumference"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Arm Length</p>
-        <input onChange={handleInput} name="armLength" type="number"></input>
+        <input
+          onChange={handleInput}
+          className="fit-and-measurements-input"
+          name="armLength"
+          type="number"
+        ></input>
         <p>Body length</p>
-        <input onChange={handleInput} name="bodyLength" type="number"></input>
-        <button onClick={handleClickPickDifferentShape}>
-          Pick different shape
-        </button>
-        <button onClick={handleSubmitData}>Submit data</button>
-        {errorMessage ? <p>{errorMessage}</p> : <></>}
+        <input
+          onChange={handleInput}
+          name="bodyLength"
+          type="number"
+          className="fit-and-measurements-input"
+        ></input>
+        <div className="buttons-section">
+          <button onClick={handleClickPickDifferentShape}>
+            Pick different shape
+          </button>
+          <button onClick={handleSubmitData}>Submit data</button>
+          {errorMessage ? <p>{errorMessage}</p> : <></>}
+        </div>
       </div>
     );
     /*
@@ -73,7 +89,7 @@ const EnterMeasurements = ({
     */
   }
 
-  if (jumperAndNeckShape.jumper === "drop-shoulder") {
+  if (finalJumperData.jumper === "drop-shoulder") {
     return (
       <div className="measurements-entry-tile">
         <h3>Drop-shoulder</h3>
@@ -82,74 +98,107 @@ const EnterMeasurements = ({
           onChange={handleInput}
           name="knittingGauge"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}
           name="chestCircumference"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Body length</p>
-        <input onChange={handleInput} name="bodyLength" type="number"></input>
+        <input
+          onChange={handleInput}
+          name="bodyLength"
+          type="number"
+          className="fit-and-measurements-input"
+        ></input>
         <p>Bottom of neckline to chest line</p>
         <input
           onChange={handleInput}
           name="necklineToChest"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Shoulder width</p>
         <input
           onChange={handleInput}
           name="shoulderWidth"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Arm Length</p>
-        <input onChange={handleInput} name="armLength" type="number"></input>
-        <button onClick={handleClickPickDifferentShape}>
-          Pick different shape
-        </button>
-        <button onClick={handleSubmitData}>Submit data</button>
-        {errorMessage ? <p>{errorMessage}</p> : <></>}
+        <input
+          onChange={handleInput}
+          name="armLength"
+          type="number"
+          className="fit-and-measurements-input"
+        ></input>
+        <div className="buttons-section">
+          <button onClick={handleClickPickDifferentShape}>
+            Pick different shape
+          </button>
+          <button onClick={handleSubmitData}>Submit data</button>
+          {errorMessage ? <p>{errorMessage}</p> : <></>}
+        </div>
       </div>
     );
   }
 
-  if (jumperAndNeckShape.jumper === "bottom-up") {
+  if (finalJumperData.jumper === "bottom-up") {
     return (
       <div className="measurements-entry-tile">
+        <h3>Bottom-Up</h3>
         <p>Knitting Gauge</p>
         <input
           onChange={handleInput}
           name="knittingGauge"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Chest circumference</p>
         <input
           onChange={handleInput}
           name="chestCircumference"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Body length</p>
-        <input onChange={handleInput} name="bodyLength" type="number"></input>
+        <input
+          onChange={handleInput}
+          name="bodyLength"
+          type="number"
+          className="fit-and-measurements-input"
+        ></input>
         <p>Bottom of neckline to chest line</p>
         <input
           onChange={handleInput}
           name="necklineToChest"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Shoulder width</p>
         <input
           onChange={handleInput}
           name="shoulderWidth"
           type="number"
+          className="fit-and-measurements-input"
         ></input>
         <p>Arm Length</p>
-        <input onChange={handleInput} name="armLength" type="number"></input>
-        <button onClick={handleClickPickDifferentShape}>
-          Pick different shape
-        </button>
-        <button onClick={handleSubmitData}>Submit data</button>
-        {errorMessage ? <p>{errorMessage}</p> : <></>}
+        <input
+          onChange={handleInput}
+          name="armLength"
+          type="number"
+          className="fit-and-measurements-input"
+        ></input>
+        <div className="buttons-section">
+          <button onClick={handleClickPickDifferentShape}>
+            Pick different shape
+          </button>
+          <button onClick={handleSubmitData}>Submit data</button>
+          {errorMessage ? <p>{errorMessage}</p> : <></>}
+        </div>
       </div>
     );
   }

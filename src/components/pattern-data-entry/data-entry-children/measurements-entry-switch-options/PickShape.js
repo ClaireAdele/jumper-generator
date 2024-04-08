@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
+const PickShape = ({
+  setToggleComponent,
+  setFinalJumperData,
+  finalJumperData,
+}) => {
   const [jumperShape, setJumperShape] = useState(null);
   const [necklineShape, setNecklineShape] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -18,7 +22,10 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
       setErrorMessage("You must pick a jumper and neckline shape");
     } else {
       setToggleComponent("measurement-entry");
-      setJumperAndNeckShape({ neckline: necklineShape, jumper: jumperShape });
+      const updatedFinalJumperData = finalJumperData;
+      updatedFinalJumperData.neckline = necklineShape;
+      updatedFinalJumperData.jumper = jumperShape;
+      setFinalJumperData(updatedFinalJumperData);
     }
   };
 
@@ -31,7 +38,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickJumperShape}
           name="pick-jumper"
           className={
-            jumperShape == "top-down-raglan"
+            jumperShape === "top-down-raglan"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -46,7 +53,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickJumperShape}
           name="pick-jumper"
           className={
-            jumperShape == "drop-shoulder"
+            jumperShape === "drop-shoulder"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -61,7 +68,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickJumperShape}
           name="pick-jumper"
           className={
-            jumperShape == "bottom-up"
+            jumperShape === "bottom-up"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -77,7 +84,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickNecklineShape}
           name="pick-neckline"
           className={
-            necklineShape == "folded-neckline"
+            necklineShape === "folded-neckline"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -92,7 +99,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickNecklineShape}
           name="pick-neckline"
           className={
-            necklineShape == "v-shape"
+            necklineShape === "v-shape"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -107,7 +114,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickNecklineShape}
           name="pick-neckline"
           className={
-            necklineShape == "boat-neck"
+            necklineShape === "boat-neck"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -122,7 +129,7 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           onClick={handlePickNecklineShape}
           name="pick-neckline"
           className={
-            necklineShape == "round-neck"
+            necklineShape === "round-neck"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -130,7 +137,9 @@ const PickShape = ({ setToggleComponent, setJumperAndNeckShape }) => {
           Round neckline
         </button>
       </div>
-      <button onClick={submitJumperAndNeckShape}>Submit Selection</button>
+      {necklineShape && jumperShape ? <button className="main-button-style" onClick={submitJumperAndNeckShape}>
+        Validate selection
+      </button> : <></> }
       {errorMessage ? <p>{errorMessage}</p> : <></>}
     </div>
   );

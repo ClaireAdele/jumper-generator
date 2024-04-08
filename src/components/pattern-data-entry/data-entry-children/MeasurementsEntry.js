@@ -7,22 +7,21 @@ const MeasurementsEntry = ({
   finalJumperData,
 }) => {
   const [toggleComponent, setToggleComponent] = useState("pick-shape");
-  const [jumperAndNeckShape, setJumperAndNeckShape] = useState({});
 
-  if (toggleComponent == "pick-shape") {
+  if (toggleComponent === "pick-shape") {
     return (
       <PickShape
         setToggleComponent={setToggleComponent}
-        setJumperAndNeckShape={setJumperAndNeckShape}
+        finalJumperData={finalJumperData}
+        setFinalJumperData={setFinalJumperData}
       />
     );
   }
 
-  if (toggleComponent == "measurement-entry") {
+  if (toggleComponent === "measurement-entry") {
     return (
       <EnterMeasurements
         setToggleComponent={setToggleComponent}
-        jumperAndNeckShape={jumperAndNeckShape}
         finalJumperData={finalJumperData}
         setFinalJumperData={setFinalJumperData}
       />

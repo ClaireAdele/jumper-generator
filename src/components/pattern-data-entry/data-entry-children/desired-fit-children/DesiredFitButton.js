@@ -1,7 +1,6 @@
 const DesiredFitButton = ({
   easeAmountOption,
   setEaseAmount,
-  setSuccessMessage,
   finalJumperData,
   setFinalJumperData,
 }) => {
@@ -14,16 +13,18 @@ const DesiredFitButton = ({
   };
 
   return (
-    <button
-      className={
-        finalJumperData.easeAmount === easeAmountOption.ease
-          ? "ease-selector-button-selected"
-          : "ease-selector-button"
-      }
-      onClick={handleClick}
-    >
-      {easeAmountOption.text}
-    </button>
+    <div>
+      <button
+        className={
+          finalJumperData.easeAmount === easeAmountOption.ease
+            ? "ease-selector-button-selected"
+            : "ease-selector-button"
+        }
+        onClick={handleClick}
+      >
+        {easeAmountOption.text}
+      </button>
+    </div>
   );
 };
 

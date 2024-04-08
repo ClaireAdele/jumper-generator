@@ -49,3 +49,12 @@ a {
 .main-button-style:hover {
   background-color: #75905f;
 }
+
+input {
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+  text-align: center;
+}

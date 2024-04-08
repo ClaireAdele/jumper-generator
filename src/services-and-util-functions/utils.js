@@ -1,4 +1,4 @@
-const validateData = (jumperAndNeckShape, jumperData) => {
+const validateData = (finalJumperData, jumperData) => {
     const keys = Object.keys(jumperData);
 
     if (!keys.includes("chestCircumference") || jumperData.chestCircumference === "")
@@ -10,7 +10,7 @@ const validateData = (jumperAndNeckShape, jumperData) => {
     if (!keys.includes("bodyLength") || jumperData.bodyLength === "")
         return false;
 
-    if (jumperAndNeckShape.jumper === "top-down-raglan") { 
+    if (finalJumperData.jumper === "top-down-raglan") { 
         return true; 
     }
 
