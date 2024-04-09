@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    
 }
 
 #ease-selection-container {                                                           
@@ -79,7 +80,25 @@
     border: 1px solid #9f9a9a;
     padding-top: 3px;
     padding-bottom: 3px;
-    max-width: 30%;
+    max-width: 40%;
     align-self: center;
 }
 
+.measurement-row {
+    display: grid;
+    grid-template-columns: 70% 50%;
+    justify-items: left;
+    margin-left: 10%;
+    margin-right: 5%;
+}
+
+#pick-different-shape {
+    margin-right: 10%;
+}
+
+
+.buttons-section {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
