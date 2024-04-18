@@ -3,8 +3,6 @@ import PickShape from "./measurements-entry-switch-options/PickShape";
 import EnterMeasurements from "./measurements-entry-switch-options/EnterMeasurements";
 
 const MeasurementsEntry = ({
-  setFinalJumperData,
-  finalJumperData,
 }) => {
   const [toggleComponent, setToggleComponent] = useState("pick-shape");
 
@@ -12,8 +10,6 @@ const MeasurementsEntry = ({
     return (
       <PickShape
         setToggleComponent={setToggleComponent}
-        finalJumperData={finalJumperData}
-        setFinalJumperData={setFinalJumperData}
       />
     );
   }
@@ -22,8 +18,6 @@ const MeasurementsEntry = ({
     return (
       <EnterMeasurements
         setToggleComponent={setToggleComponent}
-        finalJumperData={finalJumperData}
-        setFinalJumperData={setFinalJumperData}
       />
     );
   }

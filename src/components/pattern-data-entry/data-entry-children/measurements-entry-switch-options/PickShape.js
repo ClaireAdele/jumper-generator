@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext"
 
 const PickShape = ({
   setToggleComponent,
-  setFinalJumperData,
-  finalJumperData,
 }) => {
   const [jumperShape, setJumperShape] = useState(null);
   const [necklineShape, setNecklineShape] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
+  const { finalJumperData, setFinalJumperData } = useContext(FinalJumperDataContext);
 
   const handlePickJumperShape = (event) => {
     setJumperShape(event.target.value);

@@ -4,30 +4,23 @@ import "./DataEntry.css";
 import MeasurementsEntry from "./data-entry-children/MeasurementsEntry";
 import HowToTakeMeasurements from "./data-entry-children/HowToTakeMeasurements";
 import DesiredFit from "./data-entry-children/DesiredFit";
-import { useState } from "react";
+import { FinalJumperDataContextProvider } from "./data-entry-context/FinalJumperDataContext"
 
 const DataEntry = () => {
-  const [finalJumperData, setFinalJumperData] = useState({});
-
-  //Need to add some validation here too
 
     return (
       <div className="pageBackground">
         <div className="pageShaper">
           <div id="data-entry-page">
+            <FinalJumperDataContextProvider value={{}}>
             <div id="data-entry-container">
-              <MeasurementsEntry
-                setFinalJumperData={setFinalJumperData}
-                finalJumperData={finalJumperData}
-              />
-              <DesiredFit
-                setFinalJumperData={setFinalJumperData}
-                finalJumperData={finalJumperData}
-              />
+              <MeasurementsEntry />
+              <DesiredFit />
             </div>
             <button className="main-button-style">Generate Pattern</button>
             <h2>How to take your measurements</h2>
-            <HowToTakeMeasurements />
+              <HowToTakeMeasurements />
+              </FinalJumperDataContextProvider>
           </div>
         </div>
       </div>

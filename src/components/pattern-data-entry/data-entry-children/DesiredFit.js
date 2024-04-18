@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { FinalJumperDataContext } from "../data-entry-context/FinalJumperDataContext";
 import DesiredFitButton from "./desired-fit-children/DesiredFitButton";
 import "../../../App.css";
 import "../DataEntry.css";
 
-const DesiredFit = ({ finalJumperData, setFinalJumperData }) => {
+const DesiredFit = () => {
   const [easeAmount, setEaseAmount] = useState(null);
   const easeAmountOptions = [
     { ease: 0, text: "Fitted - 0 cm ease" },
@@ -11,6 +12,9 @@ const DesiredFit = ({ finalJumperData, setFinalJumperData }) => {
     { ease: 12, text: "Loose - 12cm ease" },
     { ease: 20, text: "Oversized - 20cm ease" },
   ];
+  const { finalJumperData, setFinalJumperData } = useContext(
+      FinalJumperDataContext
+    );
 
   useEffect(() => {
     if (easeAmount === "") {
@@ -24,8 +28,6 @@ const DesiredFit = ({ finalJumperData, setFinalJumperData }) => {
     updatedFinalJumperData.easeAmount = easeAmount;
     setFinalJumperData(updatedFinalJumperData);
   };
-
-  console.log(finalJumperData)
 
   return (
     <div id="ease-selection-container">

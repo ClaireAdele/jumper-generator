@@ -1,10 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext";
 import { validateData } from "../../../../services-and-util-functions/utils";
 
 const EnterMeasurements = ({
   setToggleComponent,
-  finalJumperData,
-  setFinalJumperData,
 }) => {
   const [jumperData, setJumperData] = useState({});
   const [errorMessage, setErrorMessage] = useState(null);
@@ -13,7 +12,9 @@ const EnterMeasurements = ({
     setToggleComponent("pick-shape");
   };
 
-  console.log(finalJumperData);
+  const { finalJumperData, setFinalJumperData } = useContext(
+    FinalJumperDataContext
+  );
 
   const handleInput = (event) => {
     const key = event.target.name;
