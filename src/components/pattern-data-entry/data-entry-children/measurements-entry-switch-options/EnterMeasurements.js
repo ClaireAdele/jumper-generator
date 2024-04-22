@@ -2,6 +2,9 @@ import { useState, useContext } from "react";
 import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext";
 import { validateData } from "../../../../services-and-util-functions/utils";
 
+
+//if coming from Review data, I should probs leave these fields populated to they can change only the ones they want to
+
 const EnterMeasurements = ({
   setToggleComponent,
 }) => {
@@ -39,6 +42,7 @@ const EnterMeasurements = ({
       }
 
       setFinalJumperData(updatedFinalJumperData);
+      setToggleComponent("review-data")
     }
   };
 
@@ -46,7 +50,7 @@ const EnterMeasurements = ({
     return (
       <div className="measurements-entry-tile">
         <h3>Top Down Raglan</h3>
-        <div className="measurement-row">
+        <div id="knitting-gauge-row">
           <p>Knitting Gauge:</p>
           <input
             onChange={handleInput}
@@ -54,6 +58,7 @@ const EnterMeasurements = ({
             type="number"
             className="fit-and-measurements-input"
           ></input>
+          <p>stitches per 10cm</p>
         </div>
         <div className="measurement-row">
           <p>Chest circumference:</p>

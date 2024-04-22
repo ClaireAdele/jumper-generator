@@ -6,6 +6,7 @@ const PickShape = ({
 }) => {
   const [jumperShape, setJumperShape] = useState(null);
   const [necklineShape, setNecklineShape] = useState(null);
+  const [unit, setUnit] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
   const { finalJumperData, setFinalJumperData } = useContext(FinalJumperDataContext);
 
@@ -17,20 +18,57 @@ const PickShape = ({
     setNecklineShape(event.target.value);
   };
 
+  const handlePickUnit = (event) => {
+    setUnit(event.target.value);
+  }
+
   const submitJumperAndNeckShape = () => {
     if (!jumperShape || !necklineShape) {
       setErrorMessage("You must pick a jumper and neckline shape");
     } else {
-      setToggleComponent("measurement-entry");
+      setToggleComponent("measurements-entry");
       const updatedFinalJumperData = finalJumperData;
       updatedFinalJumperData.neckline = necklineShape;
       updatedFinalJumperData.jumper = jumperShape;
+      updatedFinalJumperData.unit = unit;
+
       setFinalJumperData(updatedFinalJumperData);
     }
   };
 
   return (
     <div id="pick-shape-container">
+      <h3>Pick Unit</h3>
+      <div>
+        <button
+          value="centimetres"
+          onClick={handlePickUnit}
+          name="pick-unit"
+          className={
+            unit === "centimetres"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Centimetres
+        </button>
+      </div>
+
+      <div>
+        <button
+          value="inches"
+          onClick={handlePickUnit}
+          name="pick-unit"
+          className={
+            unit === "inches"
+              ? "pick-jumper-button-selected"
+              : "pick-jumper-button"
+          }
+        >
+          Inches
+        </button>
+      </div>
+
       <h3>Pick a Jumper Shape</h3>
       <div>
         <button
@@ -137,9 +175,16 @@ const PickShape = ({
           Round neckline
         </button>
       </div>
-      {necklineShape && jumperShape ? <button className="main-button-style" onClick={submitJumperAndNeckShape}>
-        Validate selection
-      </button> : <></> }
+      {necklineShape && jumperShape ? (
+        <button
+          className="main-button-style"
+          onClick={submitJumperAndNeckShape}
+        >
+          Validate selection
+        </button>
+      ) : (
+        <></>
+      )}
       {errorMessage ? <p>{errorMessage}</p> : <></>}
     </div>
   );
