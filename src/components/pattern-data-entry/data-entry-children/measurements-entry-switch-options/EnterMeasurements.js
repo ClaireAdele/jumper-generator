@@ -22,7 +22,7 @@ const EnterMeasurements = ({
   const handleInput = (event) => {
     const key = event.target.name;
     const value = event.target.value;
-    const updatedObject = jumperData;
+    const updatedObject = { ...jumperData };
     updatedObject[key] = value;
     setJumperData(updatedObject);
   };
@@ -33,6 +33,7 @@ const EnterMeasurements = ({
     }
 
     if (!validateData(finalJumperData, jumperData)) {
+      console.log(jumperData)
       setErrorMessage("You must enter the relevant data");
     } else {
       const updatedFinalJumperData = finalJumperData;
@@ -46,11 +47,11 @@ const EnterMeasurements = ({
     }
   };
 
-  if (finalJumperData.jumper === "top-down-raglan") {
+  if (finalJumperData.jumperShape === "top-down-raglan") {
     return (
       <div className="measurements-entry-tile">
         <h3>Top Down Raglan</h3>
-        <div id="knitting-gauge-row">
+        <div className="measurement-row">
           <p>Knitting Gauge:</p>
           <input
             onChange={handleInput}
@@ -58,7 +59,6 @@ const EnterMeasurements = ({
             type="number"
             className="fit-and-measurements-input"
           ></input>
-          <p>stitches per 10cm</p>
         </div>
         <div className="measurement-row">
           <p>Chest circumference:</p>
@@ -109,7 +109,7 @@ const EnterMeasurements = ({
     */
   }
 
-  if (finalJumperData.jumper === "drop-shoulder") {
+  if (finalJumperData.jumperShape === "drop-shoulder") {
     return (
       <div className="measurements-entry-tile">
         <h3>Drop-shoulder</h3>
@@ -184,7 +184,7 @@ const EnterMeasurements = ({
     );
   }
 
-  if (finalJumperData.jumper === "bottom-up") {
+  if (finalJumperData.jumperShape === "bottom-up") {
     return (
       <div className="measurements-entry-tile">
         <h3>Bottom-Up</h3>

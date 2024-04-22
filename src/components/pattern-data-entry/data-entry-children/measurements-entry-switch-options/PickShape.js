@@ -4,35 +4,41 @@ import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperData
 const PickShape = ({
   setToggleComponent,
 }) => {
-  const [jumperShape, setJumperShape] = useState(null);
-  const [necklineShape, setNecklineShape] = useState(null);
-  const [unit, setUnit] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
-  const { finalJumperData, setFinalJumperData } = useContext(FinalJumperDataContext);
+  const [jumperData, setJumperData] = useState({});
+  const { setFinalJumperData } = useContext(FinalJumperDataContext);
 
-  const handlePickJumperShape = (event) => {
-    setJumperShape(event.target.value);
+
+  const handleInput = (event) => {
+    const key = event.target.name;
+    const value = event.target.value;
+    const updatedObject = { ...jumperData };
+    console.log(jumperData);
+    updatedObject[key] = value;
+    setJumperData(updatedObject);
   };
 
-  const handlePickNecklineShape = (event) => {
-    setNecklineShape(event.target.value);
-  };
+  const useEffect = (() => {
 
-  const handlePickUnit = (event) => {
-    setUnit(event.target.value);
-  }
+  }, [jumperData]);
+
+      console.log(jumperData);
+  console.log(jumperData.jumperShape)
 
   const submitJumperAndNeckShape = () => {
-    if (!jumperShape || !necklineShape) {
+    if (!jumperData.jumperShape || !jumperData.necklineShape || !jumperData.unit) {
       setErrorMessage("You must pick a jumper and neckline shape");
     } else {
-      setToggleComponent("measurements-entry");
-      const updatedFinalJumperData = finalJumperData;
-      updatedFinalJumperData.neckline = necklineShape;
-      updatedFinalJumperData.jumper = jumperShape;
-      updatedFinalJumperData.unit = unit;
 
+      const updatedFinalJumperData = {};
+  
+       for (const property in jumperData) {
+         updatedFinalJumperData[property] = jumperData[property];
+       }
+      
+      console.log(updatedFinalJumperData);
       setFinalJumperData(updatedFinalJumperData);
+      setToggleComponent("measurements-entry");
     }
   };
 
@@ -42,10 +48,10 @@ const PickShape = ({
       <div>
         <button
           value="centimetres"
-          onClick={handlePickUnit}
-          name="pick-unit"
+          onClick={handleInput}
+          name="unit"
           className={
-            unit === "centimetres"
+            jumperData.unit === "centimetres"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -57,10 +63,10 @@ const PickShape = ({
       <div>
         <button
           value="inches"
-          onClick={handlePickUnit}
-          name="pick-unit"
+          onClick={handleInput}
+          name="unit"
           className={
-            unit === "inches"
+            jumperData.unit === "inches"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -73,10 +79,10 @@ const PickShape = ({
       <div>
         <button
           value="top-down-raglan"
-          onClick={handlePickJumperShape}
-          name="pick-jumper"
+          onClick={handleInput}
+          name="jumperShape"
           className={
-            jumperShape === "top-down-raglan"
+            jumperData.jumperShape === "top-down-raglan"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -88,10 +94,10 @@ const PickShape = ({
       <div>
         <button
           value="drop-shoulder"
-          onClick={handlePickJumperShape}
-          name="pick-jumper"
+          onClick={handleInput}
+          name="jumperShape"
           className={
-            jumperShape === "drop-shoulder"
+            jumperData.jumperShape === "drop-shoulder"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -103,10 +109,10 @@ const PickShape = ({
       <div>
         <button
           value="bottom-up"
-          onClick={handlePickJumperShape}
-          name="pick-jumper"
+          onClick={handleInput}
+          name="jumperShape"
           className={
-            jumperShape === "bottom-up"
+            jumperData.jumperShape === "bottom-up"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -119,10 +125,10 @@ const PickShape = ({
       <div>
         <button
           value="folded-neckline"
-          onClick={handlePickNecklineShape}
-          name="pick-neckline"
+          onClick={handleInput}
+          name="necklineShape"
           className={
-            necklineShape === "folded-neckline"
+            jumperData.necklineShape === "folded-neckline"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -134,10 +140,10 @@ const PickShape = ({
       <div>
         <button
           value="v-shape"
-          onClick={handlePickNecklineShape}
-          name="pick-neckline"
+          onClick={handleInput}
+          name="necklineShape"
           className={
-            necklineShape === "v-shape"
+            jumperData.necklineShape === "v-shape"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -149,10 +155,10 @@ const PickShape = ({
       <div>
         <button
           value="boat-neck"
-          onClick={handlePickNecklineShape}
-          name="pick-neckline"
+          onClick={handleInput}
+          name="necklineShape"
           className={
-            necklineShape === "boat-neck"
+            jumperData.necklineShape === "boat-neck"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -164,10 +170,10 @@ const PickShape = ({
       <div>
         <button
           value="round-neck"
-          onClick={handlePickNecklineShape}
-          name="pick-neckline"
+          onClick={handleInput}
+          name="necklineShape"
           className={
-            necklineShape === "round-neck"
+            jumperData.necklineShape === "round-neck"
               ? "pick-jumper-button-selected"
               : "pick-jumper-button"
           }
@@ -175,7 +181,7 @@ const PickShape = ({
           Round neckline
         </button>
       </div>
-      {necklineShape && jumperShape ? (
+      {jumperData.necklineShape && jumperData.jumperShape && jumperData.unit ? (
         <button
           className="main-button-style"
           onClick={submitJumperAndNeckShape}
