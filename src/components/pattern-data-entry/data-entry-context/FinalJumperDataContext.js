@@ -13,7 +13,7 @@ const FinalJumperDataContextProvider = ({ children }) => {
         setFinalJumperData
     }
 
-    console.log(finalJumperData)
+    console.log(finalJumperData);
     
     return (
         <FinalJumperDataContext.Provider value={contextValue}>

@@ -1,199 +1,98 @@
 import React, { useContext, useState } from "react";
 import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext"
 
-const PickShape = ({
-  setToggleComponent,
-}) => {
+
+const PickShape = ({ setToggleComponent }) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [jumperData, setJumperData] = useState({});
   const { setFinalJumperData } = useContext(FinalJumperDataContext);
 
-
   const handleInput = (event) => {
-    const key = event.target.name;
-    const value = event.target.value;
-    const updatedObject = { ...jumperData };
-    console.log(jumperData);
-    updatedObject[key] = value;
-    setJumperData(updatedObject);
+    const { name, value } = event.target;
+    setJumperData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const useEffect = (() => {
-
-  }, [jumperData]);
-
-      console.log(jumperData);
-  console.log(jumperData.jumperShape)
 
   const submitJumperAndNeckShape = () => {
-    if (!jumperData.jumperShape || !jumperData.necklineShape || !jumperData.unit) {
-      setErrorMessage("You must pick a jumper and neckline shape");
-    } else {
+    const { jumperShape, necklineShape } = jumperData;
 
-      const updatedFinalJumperData = {};
-  
-       for (const property in jumperData) {
-         updatedFinalJumperData[property] = jumperData[property];
-       }
-      
-      console.log(updatedFinalJumperData);
-      setFinalJumperData(updatedFinalJumperData);
-      setToggleComponent("measurements-entry");
+    if (!jumperShape || !necklineShape) {
+      setErrorMessage("You must pick a jumper and neckline shape");
+      return;
     }
+
+    setFinalJumperData((prevData) => ({ ...prevData, jumperShape, necklineShape }));
+    setToggleComponent("measurements-entry");
   };
+
+  // Configurations for buttons
+  const jumperShapes = [
+    { value: "top-down-raglan", label: "Top-down Raglan Jumper" },
+    { value: "drop-shoulder", label: "Drop-shoulder Seamed Jumper" },
+    { value: "bottom-up", label: "Bottom-up Raglan Jumper" },
+  ];
+  const necklineShapes = [
+    { value: "folded-neckline", label: "Folded Round Neckline" },
+    { value: "v-shape", label: "V-Shape Neckline" },
+    { value: "boat-neck", label: "Boat Neckline" },
+    { value: "round-neck", label: "Round Neckline" },
+  ];
 
   return (
     <div id="pick-shape-container">
-      <h3>Pick Unit</h3>
-      <div>
-        <button
-          value="centimetres"
-          onClick={handleInput}
-          name="unit"
-          className={
-            jumperData.unit === "centimetres"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Centimetres
-        </button>
-      </div>
-
-      <div>
-        <button
-          value="inches"
-          onClick={handleInput}
-          name="unit"
-          className={
-            jumperData.unit === "inches"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Inches
-        </button>
-      </div>
-
       <h3>Pick a Jumper Shape</h3>
-      <div>
-        <button
-          value="top-down-raglan"
-          onClick={handleInput}
-          name="jumperShape"
-          className={
-            jumperData.jumperShape === "top-down-raglan"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Top-down Raglan Jumper
-        </button>
-      </div>
-
-      <div>
-        <button
-          value="drop-shoulder"
-          onClick={handleInput}
-          name="jumperShape"
-          className={
-            jumperData.jumperShape === "drop-shoulder"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Drop-shoulder seamed Jumper
-        </button>
-      </div>
-
-      <div>
-        <button
-          value="bottom-up"
-          onClick={handleInput}
-          name="jumperShape"
-          className={
-            jumperData.jumperShape === "bottom-up"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Bottom-up Raglan Jumper
-        </button>
-      </div>
+      {jumperShapes.map(({ value, label }) => (
+        <div>
+          <button
+            key={value}
+            value={value}
+            onClick={handleInput}
+            name="jumperShape"
+            className={
+              jumperData.jumperShape === value
+                ? "pick-jumper-button-selected"
+                : "pick-jumper-button"
+            }
+          >
+            {label}
+          </button>
+        </div>
+      ))}
 
       <h3>Pick a Neckline Shape</h3>
-      <div>
-        <button
-          value="folded-neckline"
-          onClick={handleInput}
-          name="necklineShape"
-          className={
-            jumperData.necklineShape === "folded-neckline"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Folded round neckline
-        </button>
-      </div>
+      {necklineShapes.map(({ value, label }) => (
+        <div>
+          <button
+            key={value}
+            value={value}
+            onClick={handleInput}
+            name="necklineShape"
+            className={
+              jumperData.necklineShape === value
+                ? "pick-jumper-button-selected"
+                : "pick-jumper-button"
+            }
+          >
+            {label}
+          </button>
+        </div>
+      ))}
 
-      <div>
-        <button
-          value="v-shape"
-          onClick={handleInput}
-          name="necklineShape"
-          className={
-            jumperData.necklineShape === "v-shape"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          V-shape neckline
-        </button>
-      </div>
+      <button className="main-button-style">Pick a different unit</button>
 
-      <div>
-        <button
-          value="boat-neck"
-          onClick={handleInput}
-          name="necklineShape"
-          className={
-            jumperData.necklineShape === "boat-neck"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Boat neckline
-        </button>
-      </div>
-
-      <div>
-        <button
-          value="round-neck"
-          onClick={handleInput}
-          name="necklineShape"
-          className={
-            jumperData.necklineShape === "round-neck"
-              ? "pick-jumper-button-selected"
-              : "pick-jumper-button"
-          }
-        >
-          Round neckline
-        </button>
-      </div>
-      {jumperData.necklineShape && jumperData.jumperShape && jumperData.unit ? (
+      {jumperData.necklineShape && jumperData.jumperShape && (
         <button
           className="main-button-style"
           onClick={submitJumperAndNeckShape}
         >
-          Validate selection
+          Validate Selection
         </button>
-      ) : (
-        <></>
       )}
-      {errorMessage ? <p>{errorMessage}</p> : <></>}
+
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
   );
 };
+
 
 export default PickShape;

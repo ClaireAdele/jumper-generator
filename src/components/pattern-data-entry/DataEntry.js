@@ -12,7 +12,7 @@ const DataEntry = () => {
       <div className="pageBackground">
         <div className="pageShaper">
           <div id="data-entry-page">
-            <FinalJumperDataContextProvider value={{}}>
+            {/* <FinalJumperDataContextProvider value={{}}> */}
             <div id="data-entry-container">
               <MeasurementsEntry />
               <DesiredFit />
@@ -20,7 +20,7 @@ const DataEntry = () => {
             <button className="main-button-style">Generate Pattern</button>
             <h2>How to take your measurements</h2>
               <HowToTakeMeasurements />
-              </FinalJumperDataContextProvider>
+              {/* </FinalJumperDataContextProvider> */}
           </div>
         </div>
       </div>
