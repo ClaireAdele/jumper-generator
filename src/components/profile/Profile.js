@@ -3,7 +3,7 @@ import "./Profile.css"
 import HowToTakeMeasurements from "../pattern-data-entry/data-entry-children/HowToTakeMeasurements"
 import PatternList from "./pattern-list/PatternList"
 import React, { useState } from "react"
-import svg_icon_img from "../homepage/homepage_assets/ball-of-wool-svgrepo-com.svg";
+import Measurement from "./profile-children/Measurement"
 import editSvgIcon from "./profile-assets/pen-square-svgrepo-com.svg"
 
 const ProfilePage = () => {
@@ -19,23 +19,44 @@ const ProfilePage = () => {
     }
   }
 
+  const measurementsList = [
+    {
+      label: "Chest Circumference",
+      name: "chestCircumference",
+      value: 0,
+    },
+    {
+      label: "Body Length",
+      name: "bodyLength",
+      value: 0,
+    },
+    {
+      label: "Bottom of Neckline to Chest Line",
+      name: "necklineToChest",
+      value: 0,
+    },
+    {
+      label: "Shoulder Width",
+      name: "shoulderWidth",
+      value: 0,
+    },
+    {
+      label: "Arm Length",
+      name: "armLength",
+      value: 0,
+    },
+  ];
+
   return (
     <div className="pageBackground">
       <div className="pageShaper">
         <div id="profile-page">
-          <div id="profile-info-style2">
-            <div id="username-img">
-              <h1>Username</h1>
-            </div>
-            <div id="edit-profile">
-              <img src={editSvgIcon} id="edit-profile-img"></img>
-            </div>
-            <div id="measurements-style2">
-              <p>Chest</p>
-              <p></p>
-              <p>Neckline to armhole length</p>
-              <p>Armhole to bottom of jumper</p>
-              <p>Arm length</p>
+          <h2 style={{ alignSelf: "center" }}>Welcome back, username!</h2>
+          <div id="profile-info-style">
+            <div id="measurements-style">
+              {measurementsList.map((measurement) => {
+                return <Measurement measurement={measurement} />;
+              })}
             </div>
           </div>
           {showHowToTakeMeasurements ? (

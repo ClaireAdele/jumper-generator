@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext";
-import { validateData } from "../../../../services-and-util-functions/utils";
+import { validateData, formatShapeName } from "../../../../services-and-util-functions/utils";
 import InputMeasurement from "./InputMeasurement";
 
 const EnterMeasurements = ({ setToggleComponent }) => {
@@ -59,13 +59,15 @@ const EnterMeasurements = ({ setToggleComponent }) => {
   };
 
   const currentShape = finalJumperData.jumperShape;
-  const fields = shapeFields[currentShape];
+  const fields = shapeFields[currentShape]; 
+  const formattedShapeName = formatShapeName(currentShape);
+  
 
   if (!fields) return null; // Handle case where jumperShape is invalid
 
   return (
     <div className="measurements-entry-tile">
-      <h3>{currentShape.replace("-", " ")}</h3>
+      <h3>{formattedShapeName}</h3>
 
       {fields.map((field) => (
         <InputMeasurement

@@ -12,6 +12,8 @@ const PickShape = ({ setToggleComponent }) => {
     setJumperData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const handleClickPickDifferentUnit = () => setToggleComponent("pick-unit");
+
 
   const submitJumperAndNeckShape = () => {
     const { jumperShape, necklineShape } = jumperData;
@@ -78,7 +80,7 @@ const PickShape = ({ setToggleComponent }) => {
         </div>
       ))}
 
-      <button className="main-button-style">Pick a different unit</button>
+      <button className="main-button-style" onClick={handleClickPickDifferentUnit}>Pick a different unit</button>
 
       {jumperData.necklineShape && jumperData.jumperShape && (
         <button

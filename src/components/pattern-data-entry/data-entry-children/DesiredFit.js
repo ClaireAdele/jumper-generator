@@ -6,15 +6,9 @@ import "../DataEntry.css";
 
 const DesiredFit = () => {
   const [easeAmount, setEaseAmount] = useState(null);
-  const easeAmountOptions = [
-    { ease: 0, text: "Fitted - 0 cm ease" },
-    { ease: 7, text: "Standard - 7 cm ease" },
-    { ease: 12, text: "Loose - 12cm ease" },
-    { ease: 20, text: "Oversized - 20cm ease" },
-  ];
   const { finalJumperData, setFinalJumperData } = useContext(
       FinalJumperDataContext
-    );
+  );
 
   useEffect(() => {
     if (easeAmount === "") {
@@ -28,6 +22,13 @@ const DesiredFit = () => {
     updatedFinalJumperData.easeAmount = easeAmount;
     setFinalJumperData(updatedFinalJumperData);
   };
+
+  const easeAmountOptions = [
+      { ease: 0, text: "Fitted - 0 cm ease" },
+      { ease: 7, text: "Standard - 7 cm ease" },
+      { ease: 12, text: "Loose - 12cm ease" },
+      { ease: 20, text: "Oversized - 20cm ease" },
+  ];
 
   return (
     <div id="ease-selection-container">

@@ -23,4 +23,14 @@ const validateData = (finalJumperData, jumperData) => {
     return true; 
 };
 
-export { validateData }
+const formatShapeName = (currentShapeString) => {
+  const shapeMapping = {
+    "top-down-raglan": "Top-Down Raglan Jumper",
+    "drop-shoulder": "Drop-Shoulder Jumper",
+    "bottom-up": "Drop-Shoulder Jumper",
+  };
+
+  return shapeMapping[currentShapeString] || "Unknown Shape";
+};
+
+export { validateData, formatShapeName };

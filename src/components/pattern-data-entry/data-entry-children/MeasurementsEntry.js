@@ -13,19 +13,11 @@ const MeasurementsEntry = ({
    }
 
   if (toggleComponent === "pick-shape") {
-    return (
-      <PickShape
-        setToggleComponent={setToggleComponent}
-      />
-    );
+    return <PickShape setToggleComponent={setToggleComponent} />;
   }
 
   if (toggleComponent === "measurements-entry") {
-    return (
-      <EnterMeasurements
-        setToggleComponent={setToggleComponent}
-      />
-    );
+    return <EnterMeasurements setToggleComponent={setToggleComponent} />;
   }
 
   if (toggleComponent === "review-data") {

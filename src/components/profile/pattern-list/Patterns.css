@@ -1,6 +1,7 @@
 #pattern-list-container {
     display: flex;
     margin-bottom: 5%;
+    max-width: 100%;
 }
 
 .pattern-tile {

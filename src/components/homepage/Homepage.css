@@ -165,3 +165,65 @@
     text-align: center;
     align-self: center;
 }
+
+@media (max-width: 768px) {
+    #imgContainer {
+        flex-direction: column; /* Stack content vertically */
+        text-align: center; /* Center text for better readability */
+    }
+
+    #websiteTitle {
+        margin-left: 0; /* Center the title on mobile */
+        margin-top: 20px; /* Add spacing for better layout */
+    }
+
+    #pattern-creation {
+        width: 90%; /* Take up more space on smaller screens */
+        margin: 2% auto;
+    }
+
+    .pattern-creation-card {
+        max-width: 100%; /* Make cards full-width on mobile */
+        margin: 2% auto;
+    }
+
+    #description {
+        margin: 5% 10%; /* Reduce side margins for smaller screens */
+    }
+
+    .auth-form {
+        width: 80%; /* Expand the form width */
+        margin: 5% auto;
+    }
+
+    .form-container {
+        margin: 10% 5%;
+    }
+
+    #faq {
+        padding: 5%;
+    }
+
+    #faq-container {
+        margin: 2% 5%;
+    }
+
+    #about {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center;
+    }
+
+    #my-picture {
+        max-width: 50%; /* Larger image on mobile */
+        margin: 2% auto;
+    }
+
+    #about-me {
+        margin: 2% 5%;
+    }
+
+    .auth-button {
+        margin: 10% auto;
+        width: 80%; /* Full-width buttons on mobile */
+    }
+}
