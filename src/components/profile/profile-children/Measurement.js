@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { FinalJumperDataContext } from "../../pattern-data-entry/data-entry-context/FinalJumperDataContext";
 
 const Measurement = ({ measurement }) => {
   const [preferredUnit, setPreferredUnit] = useState("cm");
+     const { finalJumperData, setFinalJumperData } = useContext(
+       FinalJumperDataContext
+     );
+  
+  
+  useEffect(() => {
+    if (finalJumperData.selectedUnit) {
+      setPreferredUnit(finalJumperData.selectedUnit);
+    }
+  }, []);
+
 
   return (
     <div className="profile-row">

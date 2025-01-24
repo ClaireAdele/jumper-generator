@@ -2,7 +2,7 @@ import "../../App.css"
 import "./Profile.css"
 import HowToTakeMeasurements from "../pattern-data-entry/data-entry-children/HowToTakeMeasurements"
 import PatternList from "./pattern-list/PatternList"
-import React, { useState } from "react"
+import React, { useEffect, useState, useContext } from "react"
 import Measurement from "./profile-children/Measurement"
 import editSvgIcon from "./profile-assets/pen-square-svgrepo-com.svg"
 

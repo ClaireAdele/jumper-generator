@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const PatternTile = () => {
   return (
     <div className="pattern-tile">
-      <img className="pattern-tile-img" src={jumper}></img>
       <Link className="pattern-link" to="/yoke-pattern">
         Pattern Name
       </Link>

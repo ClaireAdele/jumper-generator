@@ -1,11 +1,11 @@
 #profile-page {
     display: flex;
     flex-direction: column;
+    min-height: 100%;
 }
 
 #profile-info-style {
     margin: 5% 20% 5% 20%;
-    background-color: white;
     border-radius: 12px;
     box-shadow: 0px 0px 5px 1px #d6d1d1;
 }
@@ -23,24 +23,6 @@
 #profile-value {
     grid-column: 3;
     justify-self: center;
-}
-
-#username-img {
-    background-image: url("./profile-assets/fabric-2892492_1280.jpg");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-}
-
-div#username-img > h4 {
-    max-width: 100%;
-    align-self: center;
 }
 
 #show-how-to-measurements {
