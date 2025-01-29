@@ -9,9 +9,10 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
   const [authError, setAuthError] = useState("");
 
   const handleClick = async () => {
+    console.log(email)
     if (!email || !password) {
       setAuthError(
-        "Please make sure to enter a correct username, password and email"
+        "Please make sure your e-mail and passwords are correct"
       );
       return;
     }
@@ -21,7 +22,7 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
 
       navigate("/profile");
     } catch(error) {
-      throw error;
+      setAuthError(error.message);
     }
   };
 
