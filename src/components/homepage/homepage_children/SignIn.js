@@ -4,6 +4,7 @@ import "../Homepage.css";
 
 const SignIn = ({ navigate, setUserHasAccount }) => {
   const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   const handleClick = () => {
     navigate("/profile");
@@ -12,6 +13,10 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
   const handleInputEmail = (event) => {
     setEmail(event.target.value);
   };
+
+  const handleInputPassword = (event) => { 
+    //sign-in user
+  }
 
   const handleClickSignUp = (event) => {
     setUserHasAccount(false);
@@ -23,9 +28,15 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
         <h2 className="form-title">Sign-In</h2>
         <input
           type="text"
-          placeholder="Username"
+          placeholder="e-mail"
           className="auth-input"
           onChange={handleInputEmail}
+        ></input>
+        <input
+          type="text"
+          placeholder="Password"
+          className="auth-input"
+          onChange={handleInputPassword}
         ></input>
         <button className="auth-button" onClick={handleClick}>
           Submit

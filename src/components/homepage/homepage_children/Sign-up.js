@@ -1,28 +1,32 @@
 import React, { useState } from "react";
+import { signUpUser } from "../../../services-and-util-functions/auth-services";
 import "../Homepage.css";
 
 const SignUp = ({ setUserHasAccount }) => {
   const [username, setUsername] = useState("");
-  const [securityQuestion, setSecurityQuestion] = useState("");
-  const [answerSecurityQuestion, setAnswerSecurityQuestion] = useState("-");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
   const [authError, setAuthError] = useState("");
 
-  const handleClick = () => {
-    if (answerSecurityQuestion == "-")
-      setAuthError("You must provide an answer to the security question");
+  const handleClick = async () => {
+    try { 
+      await signUpUser(username, email, password);
+      setUserHasAccount(true);
+    } catch (err) { 
+      setAuthError(err.message);
+    } 
   };
 
   const handleInputUsername = (event) => {
     setUsername(event.target.value);
   };
 
-  const handleSelectSecurityQuestion = (event) => {
-    console.log(event.target.value);
-    setSecurityQuestion(event.target.value);
-  };
+  const handleInputEmail = (event) => {
+    setEmail(event.target.value);
+  }
 
-  const handleAnswerSecurityQuestion = (event) => {
-    setAnswerSecurityQuestion(event.target.value);
+  const handleInputPassword = (event) => {
+    setPassword(event.target.value);
   };
 
   const handleClickSignIn = (event) => {
@@ -39,35 +43,28 @@ const SignUp = ({ setUserHasAccount }) => {
           className="auth-input"
           onChange={handleInputUsername}
         ></input>
+        <input
+          type="text"
+          placeholder="Email"
+          className="auth-input"
+          onChange={handleInputEmail}
+        ></input>
+        <input
+          type="text"
+          placeholder="Password"
+          className="auth-input"
+          onChange={handleInputPassword}
+        ></input>
         <button className="auth-button" onClick={handleClick}>
           Submit
         </button>
+        {authError && <p>{authError}</p>}
         <p onClick={handleClickSignIn} className="account-yes-no">
           Already have an account? Sign-in now.
         </p>
       </div>
-      </div>
+    </div>
   );
 };
 
 export default SignUp;
-
-
-{/* <label>Choose a security question:</label>
-        <select
-          name="security-question-form"
-          id="security-question-dropdown"
-          onChange={handleSelectSecurityQuestion}
-        >
-          <option>-</option>
-          <option>What was the name of your first pet?</option>
-          <option>In what city were you born?</option>
-          <option>What high school did you attend?</option>
-          <option>What was your mother's maiden name</option>
-        </select>
-        <input
-          type="text"
-          placeholder="Answer security question"
-          className="auth-input"
-          onChange={handleAnswerSecurityQuestion}
-        ></input> */}
