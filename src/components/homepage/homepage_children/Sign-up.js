@@ -9,7 +9,11 @@ const SignUp = ({ setUserHasAccount }) => {
   const [authError, setAuthError] = useState("");
 
   const handleClick = async () => {
-    try { 
+    try {
+      if (username == "" || password == "" || email == "") {
+        throw new Error("Please make sure to enter a correct username, password and email")
+      }
+
       await signUpUser(username, email, password);
       setUserHasAccount(true);
     } catch (err) { 
