@@ -1,13 +1,28 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { signInUser } from "../../../services-and-util-functions/auth-services";
 import "../Homepage.css";
 
 const SignIn = ({ navigate, setUserHasAccount }) => {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
+  const [authError, setAuthError] = useState("");
 
-  const handleClick = () => {
-    navigate("/profile");
+  const handleClick = async () => {
+    if (!email || !password) {
+      setAuthError(
+        "Please make sure to enter a correct username, password and email"
+      );
+      return;
+    }
+
+    try {
+      await signInUser(email, password);
+
+      navigate("/profile");
+    } catch(error) {
+      throw error;
+    }
   };
 
   const handleInputEmail = (event) => {
@@ -15,7 +30,7 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
   };
 
   const handleInputPassword = (event) => { 
-    //sign-in user
+    setPassword(event.target.value);
   }
 
   const handleClickSignUp = (event) => {
@@ -41,6 +56,7 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
         <button className="auth-button" onClick={handleClick}>
           Submit
         </button>
+        {authError && <p>{authError}</p>}
         <p onClick={handleClickSignUp} className="account-yes-no">
           No account yet? Register now
         </p>

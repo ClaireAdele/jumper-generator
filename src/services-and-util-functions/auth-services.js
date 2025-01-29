@@ -11,7 +11,7 @@ const signUpUser = async (username, email, password) => {
 
         if (!res.ok) {
             const errorData = await res.json(); // Extract error message
-            throw new Error(errorData.message || "Signup failed");
+            throw new Error(errorData.message || "Sign-up Failed - try again");
         }
 
         return await res.json();
@@ -20,4 +20,25 @@ const signUpUser = async (username, email, password) => {
     }
 }
 
-export { signUpUser };
+const signInUser = async (email, password) => { 
+    try {
+        const requestBody = { email, password };
+
+        const res = await fetch("/api/authentication", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(requestBody),
+        });
+
+        if (!res.ok) {
+            const errorData = await res.json(); 
+            throw new Error(errorData.message || "Sign-in Failed - try again");
+        }
+
+        return await res.json();
+    } catch(error) { 
+        throw error;
+    }
+}
+
+export { signUpUser, signInUser };

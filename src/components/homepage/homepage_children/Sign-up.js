@@ -3,18 +3,22 @@ import { signUpUser } from "../../../services-and-util-functions/auth-services";
 import "../Homepage.css";
 
 const SignUp = ({ setUserHasAccount }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
+  const [email, setEmail] = useState(undefined);
   const [authError, setAuthError] = useState("");
 
   const handleClick = async () => {
+    if (!username || !password || !email) {
+      setAuthError(
+        "Please make sure to enter a correct username, password and email"
+      );
+      return;
+    }
+    
     try {
-      if (username == "" || password == "" || email == "") {
-        throw new Error("Please make sure to enter a correct username, password and email")
-      }
-
       await signUpUser(username, email, password);
+    
       setUserHasAccount(true);
     } catch (err) { 
       setAuthError(err.message);
