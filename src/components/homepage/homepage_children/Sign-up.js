@@ -54,7 +54,7 @@ const SignUp = ({ setUserHasAccount }) => {
           onChange={handleInputEmail}
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           className="auth-input"
           onChange={handleInputPassword}
