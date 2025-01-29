@@ -14,31 +14,25 @@
     background-position: center;
     aspect-ratio: 4 / 5;
         /* Maintain width:height ratio */
-        width: 22%;
-    display: grid;
-    grid-template-rows: 70% 30%;
+    display: flex;
+    flex-direction: column;
     width: 20%;
-    height: 25%;
     margin-left: 1%;
     margin-bottom: 2%; 
     border-radius: 12px;
     box-shadow: 0px 0px 5px 1px #d6d1d1;
 }
 
-.pattern-tile-img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
 .pattern-link {
     background-color: #A2C685;
-    grid-row: 2;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     text-align: center;
-    padding-bottom: 5%;
-    padding-top: 5%;
+    white-space: normal;
+    padding: 7%;
     color: white; 
+    margin-top: auto;
 }
 
 #create-new-pattern {

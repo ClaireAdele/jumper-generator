@@ -4,7 +4,7 @@ import Profile from './components/profile/Profile';
 import DataEntry from './components/pattern-data-entry/DataEntry';
 import { useNavigate, Routes, Route } from "react-router-dom";
 import YokeJumperPattern from './components/pattern-data-entry/pattern-templates/YokeJumperPattern';
-import { FinalJumperDataContextProvider } from "./components/pattern-data-entry/data-entry-context/FinalJumperDataContext"
+import { FinalJumperDataContextProvider } from "./components/jumper-data-context/FinalJumperDataContext";
 
 
 function App() {

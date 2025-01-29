@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { FinalJumperDataContext } from "../../data-entry-context/FinalJumperDataContext";
+import { FinalJumperDataContext } from "../../../jumper-data-context/FinalJumperDataContext";
 import { validateData, formatShapeName } from "../../../../services-and-util-functions/utils";
 import InputMeasurement from "./InputMeasurement";
 

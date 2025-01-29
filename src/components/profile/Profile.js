@@ -53,7 +53,8 @@ const ProfilePage = () => {
         <div id="profile-page">
           <h2 style={{ alignSelf: "center" }}>Welcome back, username!</h2>
           <div id="profile-info-style">
-            <div id="measurements-style">
+            <img id="edit-profile-info-img" src={editSvgIcon}></img>
+            <div>
               {measurementsList.map((measurement) => {
                 return <Measurement measurement={measurement} />;
               })}

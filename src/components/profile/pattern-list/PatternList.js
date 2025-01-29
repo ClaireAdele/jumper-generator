@@ -1,7 +1,6 @@
 import "../../../App.css";
 import "../pattern-list/Patterns.css";
 import PatternTile from "./PatternTile";
-import placeHolderImg from "../../profile/profile-assets/sweater-7482269_1280.jpg";
 import { Link } from "react-router-dom";
 
 const PatternList = () => {
@@ -12,18 +11,6 @@ const PatternList = () => {
           Create new pattern
         </Link>
       </div>
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
-      <PatternTile />
       <PatternTile />
       <PatternTile />
       <PatternTile />

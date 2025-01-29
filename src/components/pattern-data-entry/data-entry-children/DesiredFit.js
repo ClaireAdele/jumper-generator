@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { FinalJumperDataContext } from "../data-entry-context/FinalJumperDataContext";
+import { FinalJumperDataContext } from "../../jumper-data-context/FinalJumperDataContext";
 import DesiredFitButton from "./desired-fit-children/DesiredFitButton";
 import "../../../App.css";
 import "../DataEntry.css";
