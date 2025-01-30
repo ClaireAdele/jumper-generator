@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { FinalJumperDataContext } from "../../jumper-data-context/FinalJumperDataContext";
+import { FinalJumperDataContext } from "../../../contexts/FinalJumperDataContext";;
 
 const Measurement = ({ measurement }) => {
   const [preferredUnit, setPreferredUnit] = useState("cm");

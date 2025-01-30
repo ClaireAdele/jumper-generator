@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { FinalJumperDataContext } from "../../../jumper-data-context/FinalJumperDataContext";
+import { FinalJumperDataContext } from "../../../../contexts/FinalJumperDataContext";;
 
 
 const PickShape = ({ setToggleComponent }) => {

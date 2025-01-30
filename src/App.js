@@ -4,13 +4,12 @@ import Profile from './components/profile/Profile';
 import DataEntry from './components/pattern-data-entry/DataEntry';
 import { useNavigate, Routes, Route } from "react-router-dom";
 import YokeJumperPattern from './components/pattern-data-entry/pattern-templates/YokeJumperPattern';
-import { FinalJumperDataContextProvider } from "./components/jumper-data-context/FinalJumperDataContext";
-
+import { SignedInUserContextProvider } from './contexts/SignedInUserContext';
 
 function App() {
   return (
     <div className="App">
-      <FinalJumperDataContextProvider value={{}}>
+      <SignedInUserContextProvider value={{}}>
         <Routes>
           <Route path="/" element={<Homepage navigate={useNavigate()} />} />
           <Route
@@ -26,7 +25,7 @@ function App() {
             element={<YokeJumperPattern navigate={useNavigate()} />}
           />
         </Routes>
-      </FinalJumperDataContextProvider>
+      </SignedInUserContextProvider>
     </div>
   );
 }

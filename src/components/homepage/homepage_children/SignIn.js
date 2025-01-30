@@ -9,7 +9,6 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
   const [authError, setAuthError] = useState("");
 
   const handleClick = async () => {
-    console.log(email)
     if (!email || !password) {
       setAuthError(
         "Please make sure your e-mail and passwords are correct"

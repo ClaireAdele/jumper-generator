@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { FinalJumperDataContext } from "../../../jumper-data-context/FinalJumperDataContext";
+import { FinalJumperDataContext } from "../../../../contexts/FinalJumperDataContext";
 
 const ReviewData = ({ setToggleComponent }) => {
      const { finalJumperData } = useContext(
