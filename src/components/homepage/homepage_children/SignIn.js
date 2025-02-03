@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { signInUser } from "../../../services-and-util-functions/auth-services";
+import { SignedInUserContext } from "../../../contexts/SignedInUserContext";
 import "../Homepage.css";
 
 const SignIn = ({ navigate, setUserHasAccount }) => {
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [authError, setAuthError] = useState("");
+
+  const { signedInUserData, setSignedInUserData } = useContext(
+      SignedInUserContext
+  );
 
   const handleClick = async () => {
     if (!email || !password) {
@@ -17,7 +22,10 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
     }
 
     try {
-      await signInUser(email, password);
+      const data = await signInUser(email, password);
+
+      const signedInUser = data.signedInUser;
+      setSignedInUserData(signedInUser)
 
       navigate("/profile");
     } catch(error) {
