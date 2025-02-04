@@ -2,12 +2,14 @@ import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { signInUser } from "../../../services-and-util-functions/auth-services";
 import { SignedInUserContext } from "../../../contexts/SignedInUserContext";
+import { useNavigate } from "react-router-dom";
 import "../Homepage.css";
 
-const SignIn = ({ navigate, setUserHasAccount }) => {
+const SignIn = ({ setUserHasAccount }) => {
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [authError, setAuthError] = useState("");
+  const navigate = useNavigate();
 
   const { signedInUserData, setSignedInUserData } = useContext(
       SignedInUserContext
@@ -25,7 +27,8 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
       const data = await signInUser(email, password);
 
       const signedInUser = data.signedInUser;
-      setSignedInUserData(signedInUser)
+
+      await getSignedInUserData();
 
       navigate("/profile");
     } catch(error) {
@@ -51,12 +54,12 @@ const SignIn = ({ navigate, setUserHasAccount }) => {
         <h2 className="form-title">Sign-In</h2>
         <input
           type="text"
-          placeholder="e-mail"
+          placeholder="E-mail"
           className="auth-input"
           onChange={handleInputEmail}
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           className="auth-input"
           onChange={handleInputPassword}

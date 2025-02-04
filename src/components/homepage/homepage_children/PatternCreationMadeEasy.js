@@ -7,9 +7,11 @@ import "../../../App.css";
 import yarnSvg from "../homepage_assets/ball-of-wool-svgrepo-com.svg"
 import jumperSvg from "../homepage_assets/jumper-thin.svg"
 import knittingSvg from "../homepage_assets/knitting.svg"
+import { useNavigate } from "react-router-dom";
 
-const PatternCreationMadeEasy = ({ navigate }) => {
+const PatternCreationMadeEasy = () => {
   const [userHasAccount, setUserHasAccount] = useState(true);
+  const navigate = useNavigate();
 
   return (
     <div id="pattern-creation-container">

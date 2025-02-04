@@ -10,13 +10,13 @@ const signUpUser = async (username, email, password) => {
         });
 
         if (!res.ok) {
-            const errorData = await res.json(); // Extract error message
+            const errorData = await res.json(); 
             throw new Error(errorData.message || "Sign-up Failed - try again");
         }
 
         return await res.json();
     } catch (error) {
-        throw error
+        throw error;
     }
 }
 
