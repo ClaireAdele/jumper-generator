@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from "react";
-import { FinalJumperDataContext } from "../../../contexts/FinalJumperDataContext";;
+import { FinalJumperDataContext } from "../../../../contexts/FinalJumperDataContext";;
 
 const Measurement = ({ measurement }) => {
   const [preferredUnit, setPreferredUnit] = useState("cm");
      const { finalJumperData, setFinalJumperData } = useContext(
        FinalJumperDataContext
      );
-  
   
   useEffect(() => {
     if (finalJumperData.selectedUnit) {

@@ -27,8 +27,7 @@ const SignIn = ({ setUserHasAccount }) => {
       const data = await signInUser(email, password);
 
       const signedInUser = data.signedInUser;
-
-      await getSignedInUserData();
+      setSignedInUserData(signedInUser);
 
       navigate("/profile");
     } catch(error) {
