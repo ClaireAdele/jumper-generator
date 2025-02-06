@@ -8,11 +8,9 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [showHowToTakeMeasurements, setShowHowtoTakeMeasurements] = useState(false);
   const { signedInUserData, setSignedInUserData } =
     useContext(SignedInUserContext);
   
-  console.log(signedInUserData);
   
   const [measurementsList, setMeasurementsList] = useState([
      {
@@ -35,8 +33,9 @@ const Profile = () => {
        name: "armLength",
        value: signedInUserData.armLength || 0,
      },
-   ]);
-
+  ]);
+  
+  console.log(signedInUserData);
 
   const navigate = useNavigate();
 
@@ -54,6 +53,33 @@ const Profile = () => {
     verifyUserData();
   }, []);
 
+  useEffect(() => {
+    if (signedInUserData) {
+      setMeasurementsList([
+        {
+          label: "Chest Circumference",
+          name: "chestCircumference",
+          value: signedInUserData.chestCircumference || 0, // updated dynamically
+        },
+        {
+          label: "Body Length",
+          name: "bodyLength",
+          value: signedInUserData.bodyLength || 0,
+        },
+        {
+          label: "Shoulder Width",
+          name: "shoulderWidth",
+          value: signedInUserData.shoulderWidth || 0,
+        },
+        {
+          label: "Arm Length",
+          name: "armLength",
+          value: signedInUserData.armLength || 0,
+        },
+      ]);
+    }
+  }, [signedInUserData]);
+
   if (isLoading) {
     return (
       <div className="pageBackground">
@@ -65,7 +91,6 @@ const Profile = () => {
   }
 
   return <ProfilePage measurementsList={measurementsList} />;
-     
 }
 
 export default Profile;
