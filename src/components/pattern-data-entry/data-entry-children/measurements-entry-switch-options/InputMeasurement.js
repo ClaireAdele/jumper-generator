@@ -1,8 +1,8 @@
-const InputMeasurement = ({ label, name, onChange }) => (
+const InputMeasurement = ({ label, name, handleInput }) => (
   <div className="measurement-row">
     <p>{label}</p>
     <input
-      onChange={onChange}
+      onChange={handleInput}
       name={name}
       type="number"
       className="fit-and-measurements-input"

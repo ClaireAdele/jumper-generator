@@ -11,7 +11,6 @@ const Profile = () => {
   const { signedInUserData, setSignedInUserData } =
     useContext(SignedInUserContext);
   
-  
   const [measurementsList, setMeasurementsList] = useState([
      {
        label: "Chest Circumference",
@@ -34,8 +33,6 @@ const Profile = () => {
        value: signedInUserData.armLength || 0,
      },
   ]);
-  
-  console.log(signedInUserData);
 
   const navigate = useNavigate();
 
@@ -90,7 +87,7 @@ const Profile = () => {
     );
   }
 
-  return <ProfilePage measurementsList={measurementsList} />;
+  return <ProfilePage measurementsList={measurementsList} username={signedInUserData.username} />;
 }
 
 export default Profile;

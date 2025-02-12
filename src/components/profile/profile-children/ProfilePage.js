@@ -6,10 +6,8 @@ import PatternList from "../pattern-list/PatternList";
 
 import React, { useState, useContext } from "react";
 
-const ProfilePage = ({ measurementsList }) => {
+const ProfilePage = ({ measurementsList, username }) => {
     const [showHowToTakeMeasurements, setShowHowtoTakeMeasurements] = useState(false);
-
-    const [userMeasurements, setUserMeasurements] = useState({});
 
     const handleClickShowHowTo = () => {
         if (showHowToTakeMeasurements === false) {
@@ -23,7 +21,7 @@ const ProfilePage = ({ measurementsList }) => {
       <div className="pageBackground">
         <div className="pageShaper">
           <div id="profile-page">
-            <h2 style={{ alignSelf: "center" }}>Welcome back, username!</h2>
+            <h2 style={{ alignSelf: "center" }}>Welcome back, {username} !</h2>
             <UserData measurementsList={measurementsList} />
             {showHowToTakeMeasurements ? (
               <>

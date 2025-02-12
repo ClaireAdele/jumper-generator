@@ -1,5 +1,3 @@
-import { getSignedInUserData } from "./user-services";
-
 const signUpUser = async (username, email, password) => {
 
     try {
@@ -43,13 +41,5 @@ const signInUser = async (email, password) => {
     }
 }
 
-const verifyUserAuthStatus = async () => {
-  try {
-      const signedInUserData = await getSignedInUserData();
-      return signedInUserData;  //check user is authenticated
-  } catch {
-      return false;
-  }
-};
 
-export { signUpUser, signInUser, verifyUserAuthStatus };
+export { signUpUser, signInUser };

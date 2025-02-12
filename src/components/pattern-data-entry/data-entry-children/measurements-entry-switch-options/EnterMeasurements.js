@@ -74,7 +74,7 @@ const EnterMeasurements = ({ setToggleComponent }) => {
           key={field.name}
           label={field.label}
           name={field.name}
-          onChange={handleInput}
+          handleInput={handleInput}
         />
       ))}
 

@@ -1,20 +1,39 @@
 import React, { useState, useContext, useEffect } from "react";
-import { FinalJumperDataContext } from "../../../../contexts/FinalJumperDataContext";;
+import { SignedInUserContext, SignedInUserContextProvider } from "../../../../contexts/SignedInUserContext";
 
-const Measurement = ({ measurement }) => {
+const Measurement = ({ measurement, isUserEditing, updatedUserData, setUpdatedUserData }) => {
   const [preferredUnit, setPreferredUnit] = useState("cm");
-     const { finalJumperData, setFinalJumperData } = useContext(
-       FinalJumperDataContext
+  const { signedInUserData, setSignedInUserData } = useContext(
+       SignedInUserContext
      );
   
   useEffect(() => {
-    if (finalJumperData.selectedUnit) {
-      setPreferredUnit(finalJumperData.selectedUnit);
+    if (signedInUserData.selectedUnit) {
+      setPreferredUnit(signedInUserData.selectedUnit);
     }
   }, []);
 
+  const handleChangeUserMeasurement = (event) => {
+    const newMeasurementValue = event.target.value;
+    const key = measurement.name;
+    const userData = { ...updatedUserData, [key]: newMeasurementValue };
+    setUpdatedUserData(userData);
+  };
 
-  return (
+  return isUserEditing ? (
+    <div className="profile-row">
+      <p id="profile-label">
+        <b>{measurement.label}</b>
+      </p>
+      <input
+        onChange={handleChangeUserMeasurement}
+        name={measurement.label}
+        type="number"
+        className="fit-and-measurements-input"
+      />
+      <p>{preferredUnit}</p>
+    </div>
+  ) : (
     <div className="profile-row">
       <p id="profile-label">
         <b>{measurement.label}</b>
