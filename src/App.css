@@ -51,6 +51,20 @@ a {
   background-color: #75905f;
 }
 
+.secondary-button-style {
+  background-color: rgb(155, 114, 162);
+  padding: 1% 2% 1% 2%;
+  color: white;
+  text-decoration: none;
+  font-size: medium;
+  border-radius: 12px;
+  border: 0px;
+}
+
+.secondary-button-style:hover {
+  background-color: rgb(126, 70, 136);
+}
+
 input {
   text-align: center;
 }
