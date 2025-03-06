@@ -22,7 +22,7 @@ const editUserDetails = async (updatedUserDetails) => {
     const reqBody = updatedUserDetails;
 
     try {
-        const res = await fetch("/api/users", {
+        const res = await fetch("/api/users/me", {
           method: "PUT",
           credentials: "include",
           headers: { "Content-Type": "application/json" },
