@@ -20,9 +20,11 @@ const PatternCreationMadeEasy = () => {
         <div id="columns-text">
           <div className="pattern-creation-card">
             <img className="svgImg" src={jumperSvg}></img>
-            <p>
-              Get a <b>bespoke jumper pattern</b> in just a few clicks!
-            </p>
+            <h3>
+              Generate{" "}
+              <span style={{ color: "rgb(126, 70, 136)" }}>bespoke</span> jumper
+              patterns.
+            </h3>
             <p>
               Enter your measurements and generate{" "}
               <b>free jumper patterns fitted especially for you.</b>
@@ -31,10 +33,10 @@ const PatternCreationMadeEasy = () => {
 
           <div className="pattern-creation-card">
             <img className="svgImg" src={knittingSvg}></img>
-            <p>
-              Use this jumper pattern generator to{" "}
-              <b>kick-start your design process!</b>
-            </p>
+            <h3>
+              Kick-start your{" "}
+              <span style={{ color: "rgb(126, 70, 136)" }}>design process</span>!
+            </h3>
             <p>
               Pick between different <b>jumper shapes</b>, <b>levels of ease</b>{" "}
               and <b>neckline options</b>.
@@ -43,11 +45,16 @@ const PatternCreationMadeEasy = () => {
 
           <div className="pattern-creation-card">
             <img className="svgImg" src={yarnSvg}></img>
+            <h3>
+              Start{" "}
+              <span style={{ color: "rgb(126, 70, 136)" }}>
+                saving your patterns
+              </span>{" "}
+              today.
+            </h3>
             <p>
-              <b>Create an account to start saving your patterns.</b>
-            </p>
-            <p>
-              It’s easy, and you only need a <b>username</b> to do so!
+              Create an account, it’s easy, and you only need a <b>username</b>{" "}
+              to do so!
             </p>
           </div>
         </div>

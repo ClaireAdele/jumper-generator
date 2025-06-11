@@ -17,6 +17,7 @@
 #websiteTitle {
     align-self: center;
     margin-left: 5%;
+    font-size: 3.5em;
 }
 
 #pattern-creation-container {
@@ -39,6 +40,7 @@
     border-radius: 10px;
     padding: 2% 2% 2% 2%;
     box-shadow: 0px 0px 5px 1px #d6d1d1;
+    text-align: center;
 }
 
 .svgImg {
@@ -64,7 +66,7 @@
 
 .auth-form {
     width: 30%;
-    background-color: #A2C685;
+    background-color: #42582fdc;
     text-align: center;
     color: white;
 }
@@ -92,18 +94,16 @@
     margin-left: 20%;
     margin-right: 20%;
     border-radius: 10px;
-    border: 1px solid #e3d9cf;
-    background-color: #e3d9cf;
+    border: 0px;
+    background-color: #ffffff;
     color: rgb(73, 67, 62);
     padding-bottom: 2%;
     font-size: medium;
 }
 
 .auth-button:hover {
-    background-color: #a49c95;
-    border: 1px solid #a49c95;
-    color: white;
     cursor: pointer;
+    background-color: #d5d1d6;
 }
 
 .account-yes-no {
@@ -142,7 +142,7 @@
     margin-top: 2%;
     border-radius: 10px;
     box-shadow: 3px 3px 5px 2px #9c938890;
-    background-color: #f4ebe3;
+    background-color: #ffffff;
     padding-left: 5%;
     padding-right: 5%;
 }
@@ -158,9 +158,6 @@
     display: flex;
     justify-content: space-between;
 
-}
-
-.faq-question:hover {
 }
 
 .faq-answer-wrapper {

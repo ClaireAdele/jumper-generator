@@ -22,7 +22,7 @@ const UserData = ({ measurementsList }) => {
 
   return isUserEditing ? (
     <div id="profile-info-style">
-      <div style={{ marginTop: "5%" }} >
+      <div style={{ marginTop: "5%" }}>
         {measurementsList.map((measurement) => {
           return (
             <Measurement
@@ -46,12 +46,7 @@ const UserData = ({ measurementsList }) => {
     </div>
   ) : (
     <div id="profile-info-style">
-      <img
-        id="edit-profile-info-img"
-        src={editSvgIcon}
-        onClick={handleClickEditProfile}
-      ></img>
-      <div style={{ marginTop: "3%", marginBottom: "5%" }}>
+      <div style={{ marginTop: "5%" }}>
         {measurementsList.map((measurement) => {
           return (
             <Measurement
@@ -65,6 +60,13 @@ const UserData = ({ measurementsList }) => {
           );
         })}
       </div>
+      <button
+        onClick={handleClickEditProfile}
+        className="secondary-button-style"
+        style={{ alignSelf: "center", marginBottom: "3%", marginTop: "10%" }}
+      >
+        Edit Profile
+      </button>
     </div>
   );
 };

@@ -12,18 +12,9 @@ function App() {
       <SignedInUserContextProvider value={{}}>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route
-            path="/profile"
-            element={<Profile />}
-          />
-          <Route
-            path="/data-entry"
-            element={<DataEntry />}
-          />
-          <Route
-            path="/yoke-pattern"
-            element={<YokeJumperPattern />}
-          />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/data-entry" element={<DataEntry />} />
+          <Route path="/yoke-pattern" element={<YokeJumperPattern />} />
         </Routes>
       </SignedInUserContextProvider>
     </div>

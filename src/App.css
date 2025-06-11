@@ -38,7 +38,7 @@ a {
 }
 
 .main-button-style {
-  background-color: #A2C685;
+  background-color: #42582fdc;
   padding: 1% 2% 1% 2%;
   color: white;
   text-decoration: none;
@@ -48,11 +48,11 @@ a {
 }
 
 .main-button-style:hover {
-  background-color: #75905f;
+  background-color: #42582f;
 }
 
 .secondary-button-style {
-  background-color: rgb(155, 114, 162);
+  background-color: rgb(126, 70, 136);
   padding: 1% 2% 1% 2%;
   color: white;
   text-decoration: none;
